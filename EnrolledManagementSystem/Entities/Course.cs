@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EnrolledManagementSystem.Models
+namespace EnrolledManagementSystem.Entities
 {
+    [Table("Course")]
     public class Course
     {
         [Key]

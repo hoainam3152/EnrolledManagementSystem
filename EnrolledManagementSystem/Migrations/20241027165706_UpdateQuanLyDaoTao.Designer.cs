@@ -3,6 +3,7 @@ using EnrolledManagementSystem.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EnrolledManagementSystem.Migrations
 {
     [DbContext(typeof(ManagementDbContext))]
-    partial class ManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241027165706_UpdateQuanLyDaoTao")]
+    partial class UpdateQuanLyDaoTao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -64,40 +66,6 @@ namespace EnrolledManagementSystem.Migrations
                     b.HasKey("MaLoaiDiem");
 
                     b.ToTable("LoaiDiem");
-                });
-
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.LoaiDiemMon", b =>
-                {
-                    b.Property<string>("MaLDM")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("MaKhoa")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("MaLoai")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("MaMon")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("SoCotDiem")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SoCotDiemBatBuoc")
-                        .HasColumnType("int");
-
-                    b.HasKey("MaLDM");
-
-                    b.HasIndex("MaKhoa");
-
-                    b.HasIndex("MaLoai");
-
-                    b.HasIndex("MaMon");
-
-                    b.ToTable("LoaiDiemMon");
                 });
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.LopHoc", b =>
@@ -188,33 +156,6 @@ namespace EnrolledManagementSystem.Migrations
                     b.HasKey("TenToBoMon");
 
                     b.ToTable("To_BoMon");
-                });
-
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.LoaiDiemMon", b =>
-                {
-                    b.HasOne("EnrolledManagementSystem.Entities.Khoa", "Khoa")
-                        .WithMany()
-                        .HasForeignKey("MaKhoa")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EnrolledManagementSystem.Entities.LoaiDiem", "LoaiDiem")
-                        .WithMany()
-                        .HasForeignKey("MaLoai")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EnrolledManagementSystem.Entities.MonHoc", "MonHoc")
-                        .WithMany()
-                        .HasForeignKey("MaMon")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Khoa");
-
-                    b.Navigation("LoaiDiem");
-
-                    b.Navigation("MonHoc");
                 });
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.LopHoc", b =>

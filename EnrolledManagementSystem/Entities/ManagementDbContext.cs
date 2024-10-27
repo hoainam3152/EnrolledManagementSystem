@@ -8,19 +8,19 @@ namespace EnrolledManagementSystem.Entities
 
         #region DbSet
 
-        public DbSet<AcademicYear> AcademicYears { get; set; }
-        public DbSet<BlockMarkType> BlockMarkTypes { get; set; }
-        public DbSet<Class> Classes { get; set; }
-        public DbSet<Course> Courses { get; set; }
-        public DbSet<Department> Departments { get; set; }
-        public DbSet<Lecturer> Lecturers { get; set; }
-        public DbSet<MarkType> MarkTypes { get; set; }
-        public DbSet<Receipt> Receipts { get; set; }
-        public DbSet<Result> Results { get; set; }
-        public DbSet<Subject> Subjects { get; set; }
-        public DbSet<SubjectGroup> SubjectGroups { get; set; }
-        public DbSet<TeachingAssignment> TeachingAssignments { get; set; }
-        public DbSet<Trainee> Trainees { get; set; }
+        public DbSet<NienKhoa> NienKhoas { get; set; }
+        public DbSet<Khoa> Khoas { get; set; }
+        public DbSet<To_BoMon> To_BoMons { get; set; }
+        public DbSet<MonHoc> MonHocs { get; set; }
+        public DbSet<LopHoc> LopHocs { get; set; }
+        public DbSet<LoaiDiem> LoaiDiems { get; set; }
+        public DbSet<LoaiDiemMon> LoaiDiemMons { get; set; }
+        public DbSet<Khoa_Khoi> Khoa_Khois { get; set; }
+        //public DbSet<Result> Results { get; set; }
+        //public DbSet<Subject> Subjects { get; set; }
+        //public DbSet<SubjectGroup> SubjectGroups { get; set; }
+        //public DbSet<TeachingAssignment> TeachingAssignments { get; set; }
+        //public DbSet<Trainee> Trainees { get; set; }
 
         #endregion
     }

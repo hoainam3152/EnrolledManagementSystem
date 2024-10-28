@@ -1,4 +1,5 @@
 using EnrolledManagementSystem.Entities;
+using EnrolledManagementSystem.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ManagementDbContext>(option => option.UseSqlServer(
         builder.Configuration.GetConnectionString("DB")
     ));
+// Register service
+builder.Services.AddScoped<LoaiDiemService>();
 
 var app = builder.Build();
 

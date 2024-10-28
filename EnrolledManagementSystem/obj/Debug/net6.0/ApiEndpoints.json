@@ -1,0 +1,12 @@
+[
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiDiemController",
+    "Method": "Get",
+    "RelativePath": "LoaiDiem",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

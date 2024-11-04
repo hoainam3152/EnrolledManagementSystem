@@ -7,7 +7,12 @@ namespace EnrolledManagementSystem.Entities
     public class Khoa_Khoi
     {
         [Key]
+        [StringLength(20)]
         public string MaKhoa { get; set; }
+        [Required]
+        [StringLength(100)]
         public string TenKhoa { get; set; }
+
+        public ICollection<LopHoc> LopHocs { get; set; }
     }
 }

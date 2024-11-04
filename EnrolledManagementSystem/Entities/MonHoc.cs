@@ -7,9 +7,15 @@ namespace EnrolledManagementSystem.Entities
     public class MonHoc
     {
         [Key]
+        [StringLength(20)]
         public string MaMonHoc { get; set; }
+        [Required]
+        [StringLength(100)]
         public string TenMonHoc { get; set; }
-        public string MaToBoMon { get; set; }
+        [Required]
+        public int MaToBoMon { get; set; }
+        [Required]
+        [StringLength(20)]
         public string MaKhoaKhoi { get; set; }
 
         [ForeignKey("MaToBoMon")]
@@ -17,5 +23,7 @@ namespace EnrolledManagementSystem.Entities
 
         [ForeignKey("MaKhoaKhoi")]
         public Khoa_Khoi Khoa_Khoi { get; set; }
+
+        public ICollection<LoaiDiemMon> loaiDiemMons { get; set; }
     }
 }

@@ -19,44 +19,7 @@
     "Parameters": [
       {
         "Name": "ld",
-        "Type": "EnrolledManagementSystem.Entities.LoaiDiem",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiDiemController",
-    "Method": "Details",
-    "RelativePath": "LoaiDiem/{id}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      },
-      {
-        "Name": "ld",
-        "Type": "EnrolledManagementSystem.Entities.LoaiDiem",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiDiemController",
-    "Method": "Delete",
-    "RelativePath": "LoaiDiem/{id}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
+        "Type": "EnrolledManagementSystem.Models.LoaiDiemModel",
         "IsRequired": true
       }
     ],
@@ -67,6 +30,43 @@
     "Method": "Details",
     "RelativePath": "LoaiDiem/id",
     "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiDiemController",
+    "Method": "Details",
+    "RelativePath": "LoaiDiem/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ld",
+        "Type": "EnrolledManagementSystem.Models.LoaiDiemModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiDiemController",
+    "Method": "Delete",
+    "RelativePath": "LoaiDiem/id",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [

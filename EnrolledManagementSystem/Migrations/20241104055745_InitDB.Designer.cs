@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EnrolledManagementSystem.Migrations
 {
     [DbContext(typeof(ManagementDbContext))]
-    [Migration("20241027165706_UpdateQuanLyDaoTao")]
-    partial class UpdateQuanLyDaoTao
+    [Migration("20241104055745_InitDB")]
+    partial class InitDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,11 +26,13 @@ namespace EnrolledManagementSystem.Migrations
             modelBuilder.Entity("EnrolledManagementSystem.Entities.Khoa", b =>
                 {
                     b.Property<string>("MaKhoa")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("TenKhoa")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("MaKhoa");
 
@@ -40,11 +42,13 @@ namespace EnrolledManagementSystem.Migrations
             modelBuilder.Entity("EnrolledManagementSystem.Entities.Khoa_Khoi", b =>
                 {
                     b.Property<string>("MaKhoa")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("TenKhoa")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("MaKhoa");
 
@@ -54,27 +58,58 @@ namespace EnrolledManagementSystem.Migrations
             modelBuilder.Entity("EnrolledManagementSystem.Entities.LoaiDiem", b =>
                 {
                     b.Property<string>("MaLoaiDiem")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<int>("HeSo")
                         .HasColumnType("int");
 
                     b.Property<string>("TenLoaiDiem")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("MaLoaiDiem");
 
                     b.ToTable("LoaiDiem");
                 });
 
+            modelBuilder.Entity("EnrolledManagementSystem.Entities.LoaiDiemMon", b =>
+                {
+                    b.Property<string>("MaKhoa")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("MaMon")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("MaLoai")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("SoCotDiem")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SoCotDiemBatBuoc")
+                        .HasColumnType("int");
+
+                    b.HasKey("MaKhoa", "MaMon", "MaLoai");
+
+                    b.HasIndex("MaLoai");
+
+                    b.HasIndex("MaMon");
+
+                    b.ToTable("LoaiDiemMon");
+                });
+
             modelBuilder.Entity("EnrolledManagementSystem.Entities.LopHoc", b =>
                 {
                     b.Property<string>("MaLop")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("HinhAnh")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("HocPhi")
@@ -82,14 +117,15 @@ namespace EnrolledManagementSystem.Migrations
 
                     b.Property<string>("MaKhoaKhoi")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("MaNienKhoa")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("MoTat")
-                        .IsRequired()
+                    b.Property<string>("MoTa")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("SoLuongHocVien")
@@ -97,7 +133,8 @@ namespace EnrolledManagementSystem.Migrations
 
                     b.Property<string>("TenLop")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("MaLop");
 
@@ -111,19 +148,21 @@ namespace EnrolledManagementSystem.Migrations
             modelBuilder.Entity("EnrolledManagementSystem.Entities.MonHoc", b =>
                 {
                     b.Property<string>("MaMonHoc")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("MaKhoaKhoi")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("MaToBoMon")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MaToBoMon")
+                        .HasColumnType("int");
 
                     b.Property<string>("TenMonHoc")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("MaMonHoc");
 
@@ -137,11 +176,13 @@ namespace EnrolledManagementSystem.Migrations
             modelBuilder.Entity("EnrolledManagementSystem.Entities.NienKhoa", b =>
                 {
                     b.Property<string>("MaNienKhoa")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("TenNiemKhoa")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("MaNienKhoa");
 
@@ -150,24 +191,59 @@ namespace EnrolledManagementSystem.Migrations
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.To_BoMon", b =>
                 {
-                    b.Property<string>("TenToBoMon")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("MaToBoMon")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.HasKey("TenToBoMon");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaToBoMon"), 1L, 1);
+
+                    b.Property<string>("TenToBoMon")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("MaToBoMon");
 
                     b.ToTable("To_BoMon");
+                });
+
+            modelBuilder.Entity("EnrolledManagementSystem.Entities.LoaiDiemMon", b =>
+                {
+                    b.HasOne("EnrolledManagementSystem.Entities.Khoa", "Khoa")
+                        .WithMany("loaiDiemMons")
+                        .HasForeignKey("MaKhoa")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EnrolledManagementSystem.Entities.LoaiDiem", "LoaiDiem")
+                        .WithMany("loaiDiemMons")
+                        .HasForeignKey("MaLoai")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EnrolledManagementSystem.Entities.MonHoc", "MonHoc")
+                        .WithMany("loaiDiemMons")
+                        .HasForeignKey("MaMon")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Khoa");
+
+                    b.Navigation("LoaiDiem");
+
+                    b.Navigation("MonHoc");
                 });
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.LopHoc", b =>
                 {
                     b.HasOne("EnrolledManagementSystem.Entities.Khoa_Khoi", "Khoa_Khoi")
-                        .WithMany()
+                        .WithMany("LopHocs")
                         .HasForeignKey("MaKhoaKhoi")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EnrolledManagementSystem.Entities.NienKhoa", "NienKhoa")
-                        .WithMany()
+                        .WithMany("LopHocs")
                         .HasForeignKey("MaNienKhoa")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -194,6 +270,31 @@ namespace EnrolledManagementSystem.Migrations
                     b.Navigation("Khoa_Khoi");
 
                     b.Navigation("To_BoMon");
+                });
+
+            modelBuilder.Entity("EnrolledManagementSystem.Entities.Khoa", b =>
+                {
+                    b.Navigation("loaiDiemMons");
+                });
+
+            modelBuilder.Entity("EnrolledManagementSystem.Entities.Khoa_Khoi", b =>
+                {
+                    b.Navigation("LopHocs");
+                });
+
+            modelBuilder.Entity("EnrolledManagementSystem.Entities.LoaiDiem", b =>
+                {
+                    b.Navigation("loaiDiemMons");
+                });
+
+            modelBuilder.Entity("EnrolledManagementSystem.Entities.MonHoc", b =>
+                {
+                    b.Navigation("loaiDiemMons");
+                });
+
+            modelBuilder.Entity("EnrolledManagementSystem.Entities.NienKhoa", b =>
+                {
+                    b.Navigation("LopHocs");
                 });
 #pragma warning restore 612, 618
         }

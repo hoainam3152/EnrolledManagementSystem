@@ -1,4 +1,4 @@
-﻿using EnrolledManagementSystem.Entities;
+﻿using EnrolledManagementSystem.Models;
 using EnrolledManagementSystem.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -37,72 +37,98 @@ namespace EnrolledManagementSystem.Controllers
         [HttpGet("id")]
         public async Task<IActionResult> Details(string id)
         {
-            try
+            if (ModelState.IsValid)
             {
-                var loaiDiem = await _service.GetByID(id);
-                if (loaiDiem != null)
+                try
                 {
-                    return Ok(loaiDiem);
+                    var loaiDiem = await _service.GetByID(id);
+                    if (loaiDiem != null)
+                    {
+                        return Ok(loaiDiem);
+                    }
+                    return NotFound();
                 }
-                return NotFound();
-            }
-            catch
+                catch
+                {
+                    return BadRequest();
+                }
+            } else
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(LoaiDiem ld)
+        public async Task<IActionResult> Create(LoaiDiemModel ld)
         {
-            try
+            if (ModelState.IsValid)
             {
-                var loaiDiem = await _service.Add(ld);
-                if (loaiDiem == null)
+                try
                 {
-                    return StatusCode(StatusCodes.Status201Created, loaiDiem);
+                    var loaiDiem = await _service.Add(ld);
+                    if (loaiDiem == null)
+                    {
+                        return StatusCode(StatusCodes.Status201Created, loaiDiem);
+                    }
+                    return BadRequest("Loại điểm đã tồn tại trong hệ thống");
                 }
-                return BadRequest("Loại điểm đã tồn tại trong hệ thống");
+                catch
+                {
+                    return BadRequest();
+                }
             }
-            catch
+            else
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
         }
 
         [HttpPut("id")]
-        public async Task<IActionResult> Details(string id, LoaiDiem ld)
+        public async Task<IActionResult> Details(string id, LoaiDiemModel ld)
         {
-            try
+            if (ModelState.IsValid)
             {
-                var loaiDiem = await _service.Update(id, ld);
-                if (loaiDiem != null)
+                try
                 {
-                    return NoContent();
+                    var loaiDiem = await _service.Update(id, ld);
+                    if (loaiDiem != null)
+                    {
+                        return NoContent();
+                    }
+                    return NotFound();
                 }
-                return NotFound();
+                catch
+                {
+                    return BadRequest();
+                }
             }
-            catch
+            else
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
         }
 
         [HttpDelete("id")]
         public async Task<IActionResult> Delete(string id)
         {
-            try
+            if (ModelState.IsValid)
             {
-                var loaiDiem = await _service.Delete(id);
-                if (loaiDiem != null)
+                try
                 {
-                    return NoContent();
+                    var loaiDiem = await _service.Delete(id);
+                    if (loaiDiem != null)
+                    {
+                        return NoContent();
+                    }
+                    return Ok();
                 }
-                return Ok();
-            }
-            catch
+                catch
+                {
+                    return BadRequest();
+                }
+            } else
             {
-                return BadRequest();
+                return BadRequest(ModelState);
             }
         }
     }

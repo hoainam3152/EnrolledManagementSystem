@@ -1,4 +1,5 @@
 ﻿using EnrolledManagementSystem.Entities;
+using EnrolledManagementSystem.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EnrolledManagementSystem.Services
@@ -22,18 +23,18 @@ namespace EnrolledManagementSystem.Services
             return await _context.LoaiDiems.FirstOrDefaultAsync(ld => ld.MaLoaiDiem == id);
         }
 
-        public async Task<LoaiDiem?> Add(LoaiDiem loaiDiem)
+        public async Task<LoaiDiem?> Add(LoaiDiemModel loaiDiem)
         {
             var ld = await _context.LoaiDiems.FindAsync(loaiDiem.MaLoaiDiem);
             if (ld == null)
             {
-                _context.Add(loaiDiem);
+                _context.Add(new LoaiDiem(loaiDiem));
                 await _context.SaveChangesAsync();
             }
             return ld;
         }
 
-        public async Task<LoaiDiem?> Update(string id, LoaiDiem loaiDiem)
+        public async Task<LoaiDiem?> Update(string id, LoaiDiemModel loaiDiem)
         {
             var ld = await _context.LoaiDiems.FindAsync(id);
             if (ld != null)

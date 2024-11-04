@@ -16,5 +16,25 @@ namespace EnrolledManagementSystem.Entities
         public DbSet<LoaiDiemMon> LoaiDiemMons { get; set; }
         public DbSet<Khoa_Khoi> Khoa_Khois { get; set; }
         #endregion
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<LoaiDiemMon>(entity =>
+            {
+                entity.HasKey(e => new { e.MaKhoa, e.MaMon, e.MaLoai });
+
+                entity.HasOne(e => e.Khoa)
+                    .WithMany(e => e.loaiDiemMons)
+                    .HasForeignKey(e => e.MaKhoa);
+
+                entity.HasOne(e => e.MonHoc)
+                    .WithMany(e => e.loaiDiemMons)
+                    .HasForeignKey(e => e.MaMon);
+
+                entity.HasOne(e => e.LoaiDiem)
+                    .WithMany(e => e.loaiDiemMons)
+                    .HasForeignKey(e => e.MaLoai);
+            });
+        }
     }
 }

@@ -6,10 +6,14 @@ namespace EnrolledManagementSystem.Entities
     [Table("LoaiDiemMon")]
     public class LoaiDiemMon
     {
-        [Key]
-        public string MaLDM { get; set; }
+        [Required]
+        [StringLength(20)]
         public string MaKhoa { get; set; }
+        [Required]
+        [StringLength(20)]
         public string MaMon { get; set; }
+        [Required]
+        [StringLength(20)]
         public string MaLoai { get; set; }
         public int SoCotDiem { get; set; }
         public int SoCotDiemBatBuoc { get; set; }

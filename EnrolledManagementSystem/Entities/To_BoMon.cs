@@ -7,6 +7,10 @@ namespace EnrolledManagementSystem.Entities
     public class To_BoMon
     {
         [Key]
+        public int MaToBoMon { get; set; }
+
+        [Required]
+        [StringLength(100)]
         public string TenToBoMon { get; set; }
     }
 }

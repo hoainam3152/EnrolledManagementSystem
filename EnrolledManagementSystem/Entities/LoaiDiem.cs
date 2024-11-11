@@ -16,10 +16,7 @@ namespace EnrolledManagementSystem.Entities
 
         public ICollection<LoaiDiemMon> loaiDiemMons { get; set; }
 
-        public LoaiDiem()
-        {
-                
-        }
+        public LoaiDiem() { }
 
         public LoaiDiem(Models.LoaiDiemCreate ldModel)
         {

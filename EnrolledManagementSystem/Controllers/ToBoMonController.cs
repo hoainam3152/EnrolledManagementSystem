@@ -1,6 +1,6 @@
 ﻿using CoreApiResponse;
+using EnrolledManagementSystem.DTO.Requests;
 using EnrolledManagementSystem.Enums;
-using EnrolledManagementSystem.Models;
 using EnrolledManagementSystem.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -9,11 +9,11 @@ namespace EnrolledManagementSystem.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class LoaiDiemController : BaseController
+    public class ToBoMonController : BaseController
     {
-        private readonly LoaiDiemService _service;
+        private readonly ToBoMonService _service;
 
-        public LoaiDiemController(LoaiDiemService service)
+        public ToBoMonController(ToBoMonService service)
         {
             _service = service;
         }
@@ -23,14 +23,12 @@ namespace EnrolledManagementSystem.Controllers
         {
             try
             {
-                var loaiDiemList = await _service.GetAll();
-                if (loaiDiemList != null)
+                var toBoMons = await _service.GetAll();
+                if (toBoMons != null)
                 {
-                    
-                    return CustomResult(loaiDiemList, HttpStatusCode.OK);
+                    return CustomResult(toBoMons, HttpStatusCode.OK);
                 }
                 return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
-                //return loaiDiemList == null ? NotFound() : Ok(loaiDiemList);
             }
             catch (Exception ex)
             {
@@ -39,46 +37,43 @@ namespace EnrolledManagementSystem.Controllers
         }
 
         [HttpGet("id")]
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int id)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var loaiDiem = await _service.GetByID(id);
-                    if (loaiDiem != null)
+                    var toBoMons = await _service.GetById(id);
+                    if (toBoMons != null)
                     {
-                        return CustomResult(loaiDiem, HttpStatusCode.OK);
+                        return CustomResult(toBoMons, HttpStatusCode.OK);
                     }
-                    return CustomResult(ResponseMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
+                    return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
                 }
                 catch (Exception ex)
                 {
                     return BadRequest(ex.Message);
                 }
-            } else
+            }
+            else
             {
                 return BadRequest(ModelState);
             }
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(LoaiDiemCreate ld)
+        public async Task<IActionResult> Create(ToBoMonRequest tbm)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var loaiDiem = await _service.Add(ld);
-                    if (loaiDiem == null)
-                    {
+                    var toBoMon = await _service.Add(tbm);
                         return CustomResult(
                             ResponseMessage.CREATED_SUCCESSFULLY,
-                            ld,
+                            toBoMon,
                             HttpStatusCode.Created
                             );
-                    }
-                    return CustomResult(ResponseMessage.DUPLICATE_KEY, HttpStatusCode.Conflict);
                 }
                 catch (Exception ex)
                 {
@@ -92,18 +87,18 @@ namespace EnrolledManagementSystem.Controllers
         }
 
         [HttpPut("id")]
-        public async Task<IActionResult> Update(string id, LoaiDiemUpdate ld)
+        public async Task<IActionResult> Update(int id, ToBoMonRequest tbm)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var loaiDiem = await _service.Update(id, ld);
-                    if (loaiDiem != null)
+                    var toBoMon = await _service.Update(id, tbm);
+                    if (toBoMon != null)
                     {
                         return CustomResult(
-                            ResponseMessage.UPDATED_SUCCESSFULLY, 
-                            loaiDiem,
+                            ResponseMessage.UPDATED_SUCCESSFULLY,
+                            toBoMon,
                             HttpStatusCode.OK);
                     }
                     return CustomResult(ResponseMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
@@ -120,14 +115,14 @@ namespace EnrolledManagementSystem.Controllers
         }
 
         [HttpDelete("id")]
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int id)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var loaiDiem = await _service.Delete(id);
-                    if (loaiDiem != null)
+                    var toBoMon = await _service.Delete(id);
+                    if (toBoMon != null)
                     {
                         return CustomResult(ResponseMessage.DELETED_SUCCESSFULLY, HttpStatusCode.OK);
                     }
@@ -137,7 +132,8 @@ namespace EnrolledManagementSystem.Controllers
                 {
                     return BadRequest(ex.Message);
                 }
-            } else
+            }
+            else
             {
                 return BadRequest(ModelState);
             }

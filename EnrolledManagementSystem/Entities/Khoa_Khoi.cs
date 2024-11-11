@@ -8,10 +8,10 @@ namespace EnrolledManagementSystem.Entities
     {
         [Key]
         [StringLength(20)]
-        public string MaKhoa { get; set; }
+        public string MaKhoaKhoi { get; set; }
         [Required]
         [StringLength(100)]
-        public string TenKhoa { get; set; }
+        public string TenKhoaKhoi { get; set; }
 
         public ICollection<LopHoc> LopHocs { get; set; }
     }

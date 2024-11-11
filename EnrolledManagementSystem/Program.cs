@@ -15,6 +15,8 @@ builder.Services.AddDbContext<ManagementDbContext>(option => option.UseSqlServer
     ));
 // Register service
 builder.Services.AddScoped<LoaiDiemService>();
+builder.Services.AddScoped<KhoaKhoiService>();
+builder.Services.AddScoped<ToBoMonService>();
 
 var app = builder.Build();
 

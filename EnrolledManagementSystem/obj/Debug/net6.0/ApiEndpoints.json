@@ -1,5 +1,84 @@
 [
   {
+    "ContainingType": "EnrolledManagementSystem.Controllers.KhoaKhoiController",
+    "Method": "Get",
+    "RelativePath": "KhoaKhoi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.KhoaKhoiController",
+    "Method": "Create",
+    "RelativePath": "KhoaKhoi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "kk",
+        "Type": "EnrolledManagementSystem.DTO.Requests.KhoaKhoiCreate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.KhoaKhoiController",
+    "Method": "Details",
+    "RelativePath": "KhoaKhoi/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.KhoaKhoiController",
+    "Method": "Update",
+    "RelativePath": "KhoaKhoi/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "kk",
+        "Type": "EnrolledManagementSystem.DTO.Requests.KhoaKhoiUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.KhoaKhoiController",
+    "Method": "Delete",
+    "RelativePath": "KhoaKhoi/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EnrolledManagementSystem.Controllers.LoaiDiemController",
     "Method": "Get",
     "RelativePath": "LoaiDiem",
@@ -73,6 +152,85 @@
       {
         "Name": "id",
         "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.ToBoMonController",
+    "Method": "Get",
+    "RelativePath": "ToBoMon",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.ToBoMonController",
+    "Method": "Create",
+    "RelativePath": "ToBoMon",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tbm",
+        "Type": "EnrolledManagementSystem.DTO.Requests.ToBoMonRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.ToBoMonController",
+    "Method": "Details",
+    "RelativePath": "ToBoMon/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.ToBoMonController",
+    "Method": "Update",
+    "RelativePath": "ToBoMon/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "tbm",
+        "Type": "EnrolledManagementSystem.DTO.Requests.ToBoMonRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.ToBoMonController",
+    "Method": "Delete",
+    "RelativePath": "ToBoMon/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

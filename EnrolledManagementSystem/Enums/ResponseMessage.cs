@@ -1,6 +1,6 @@
 ﻿namespace EnrolledManagementSystem.Enums
 {
-    public class ResponeMessage
+    public class ResponseMessage
     {
         //Success
         public const string CREATED_SUCCESSFULLY = "Created Successfully";

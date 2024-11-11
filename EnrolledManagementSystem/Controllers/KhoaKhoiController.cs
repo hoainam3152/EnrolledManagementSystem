@@ -1,19 +1,19 @@
 ﻿using CoreApiResponse;
-using EnrolledManagementSystem.Enums;
-using EnrolledManagementSystem.Models;
 using EnrolledManagementSystem.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
+using EnrolledManagementSystem.Enums;
+using EnrolledManagementSystem.DTO.Requests;
 
 namespace EnrolledManagementSystem.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class LoaiDiemController : BaseController
+    public class KhoaKhoiController : BaseController
     {
-        private readonly LoaiDiemService _service;
+        private readonly KhoaKhoiService _service;
 
-        public LoaiDiemController(LoaiDiemService service)
+        public KhoaKhoiController(KhoaKhoiService service) 
         {
             _service = service;
         }
@@ -23,14 +23,12 @@ namespace EnrolledManagementSystem.Controllers
         {
             try
             {
-                var loaiDiemList = await _service.GetAll();
-                if (loaiDiemList != null)
+                var khoaKhois = await _service.GetAll();
+                if (khoaKhois != null)
                 {
-                    
-                    return CustomResult(loaiDiemList, HttpStatusCode.OK);
+                    return CustomResult(khoaKhois, HttpStatusCode.OK);
                 }
                 return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
-                //return loaiDiemList == null ? NotFound() : Ok(loaiDiemList);
             }
             catch (Exception ex)
             {
@@ -45,12 +43,12 @@ namespace EnrolledManagementSystem.Controllers
             {
                 try
                 {
-                    var loaiDiem = await _service.GetByID(id);
-                    if (loaiDiem != null)
+                    var khoaKhois = await _service.GetById(id);
+                    if (khoaKhois != null)
                     {
-                        return CustomResult(loaiDiem, HttpStatusCode.OK);
+                        return CustomResult(khoaKhois, HttpStatusCode.OK);
                     }
-                    return CustomResult(ResponseMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
+                    return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
                 }
                 catch (Exception ex)
                 {
@@ -63,18 +61,18 @@ namespace EnrolledManagementSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(LoaiDiemCreate ld)
+        public async Task<IActionResult> Create(KhoaKhoiCreate kk)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var loaiDiem = await _service.Add(ld);
-                    if (loaiDiem == null)
+                    var khoaKhoi = await _service.Add(kk);
+                    if (khoaKhoi == null)
                     {
                         return CustomResult(
                             ResponseMessage.CREATED_SUCCESSFULLY,
-                            ld,
+                            kk,
                             HttpStatusCode.Created
                             );
                     }
@@ -92,18 +90,18 @@ namespace EnrolledManagementSystem.Controllers
         }
 
         [HttpPut("id")]
-        public async Task<IActionResult> Update(string id, LoaiDiemUpdate ld)
+        public async Task<IActionResult> Update(string id, KhoaKhoiUpdate kk)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var loaiDiem = await _service.Update(id, ld);
-                    if (loaiDiem != null)
+                    var khoaKhoi = await _service.Update(id, kk);
+                    if (khoaKhoi != null)
                     {
                         return CustomResult(
-                            ResponseMessage.UPDATED_SUCCESSFULLY, 
-                            loaiDiem,
+                            ResponseMessage.UPDATED_SUCCESSFULLY,
+                            khoaKhoi,
                             HttpStatusCode.OK);
                     }
                     return CustomResult(ResponseMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
@@ -126,8 +124,8 @@ namespace EnrolledManagementSystem.Controllers
             {
                 try
                 {
-                    var loaiDiem = await _service.Delete(id);
-                    if (loaiDiem != null)
+                    var khoaKhoi = await _service.Delete(id);
+                    if (khoaKhoi != null)
                     {
                         return CustomResult(ResponseMessage.DELETED_SUCCESSFULLY, HttpStatusCode.OK);
                     }
@@ -137,7 +135,8 @@ namespace EnrolledManagementSystem.Controllers
                 {
                     return BadRequest(ex.Message);
                 }
-            } else
+            }
+            else
             {
                 return BadRequest(ModelState);
             }

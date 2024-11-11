@@ -21,7 +21,7 @@ namespace EnrolledManagementSystem.Entities
                 
         }
 
-        public LoaiDiem(Models.LoaiDiemModel ldModel)
+        public LoaiDiem(Models.LoaiDiemCreate ldModel)
         {
             this.MaLoaiDiem = ldModel.MaLoaiDiem;
             this.TenLoaiDiem = ldModel.TenLoaiDiem;

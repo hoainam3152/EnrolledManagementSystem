@@ -65,3 +65,7 @@ D:\Documents\Thuc_tap\Alta Software\Course Signup System\EnrolledManagementSyste
 D:\Documents\Thuc_tap\Alta Software\Course Signup System\EnrolledManagementSystem\EnrolledManagementSystem\obj\Debug\net6.0\EnrolledManagementSystem.pdb
 D:\Documents\Thuc_tap\Alta Software\Course Signup System\EnrolledManagementSystem\EnrolledManagementSystem\obj\Debug\net6.0\EnrolledManagementSystem.genruntimeconfig.cache
 D:\Documents\Thuc_tap\Alta Software\Course Signup System\EnrolledManagementSystem\EnrolledManagementSystem\obj\Debug\net6.0\ref\EnrolledManagementSystem.dll
+D:\Documents\Thuc_tap\Alta Software\Course Signup System\EnrolledManagementSystem\EnrolledManagementSystem\bin\Debug\net6.0\CoreApiResponse.dll
+D:\Documents\Thuc_tap\Alta Software\Course Signup System\EnrolledManagementSystem\EnrolledManagementSystem\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\Documents\Thuc_tap\Alta Software\Course Signup System\EnrolledManagementSystem\EnrolledManagementSystem\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\Documents\Thuc_tap\Alta Software\Course Signup System\EnrolledManagementSystem\EnrolledManagementSystem\bin\Debug\net6.0\Newtonsoft.Json.dll

@@ -19,7 +19,7 @@
     "Parameters": [
       {
         "Name": "ld",
-        "Type": "EnrolledManagementSystem.Models.LoaiDiemModel",
+        "Type": "EnrolledManagementSystem.Models.LoaiDiemCreate",
         "IsRequired": true
       }
     ],
@@ -43,7 +43,7 @@
   },
   {
     "ContainingType": "EnrolledManagementSystem.Controllers.LoaiDiemController",
-    "Method": "Details",
+    "Method": "Update",
     "RelativePath": "LoaiDiem/id",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -56,7 +56,7 @@
       },
       {
         "Name": "ld",
-        "Type": "EnrolledManagementSystem.Models.LoaiDiemModel",
+        "Type": "EnrolledManagementSystem.Models.LoaiDiemUpdate",
         "IsRequired": true
       }
     ],

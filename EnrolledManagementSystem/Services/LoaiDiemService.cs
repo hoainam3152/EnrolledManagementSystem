@@ -23,7 +23,7 @@ namespace EnrolledManagementSystem.Services
             return await _context.LoaiDiems.FirstOrDefaultAsync(ld => ld.MaLoaiDiem == id);
         }
 
-        public async Task<LoaiDiem?> Add(LoaiDiemModel loaiDiem)
+        public async Task<LoaiDiem?> Add(LoaiDiemCreate loaiDiem)
         {
             var ld = await _context.LoaiDiems.FindAsync(loaiDiem.MaLoaiDiem);
             if (ld == null)
@@ -34,7 +34,7 @@ namespace EnrolledManagementSystem.Services
             return ld;
         }
 
-        public async Task<LoaiDiem?> Update(string id, LoaiDiemModel loaiDiem)
+        public async Task<LoaiDiem?> Update(string id, LoaiDiemUpdate loaiDiem)
         {
             var ld = await _context.LoaiDiems.FindAsync(id);
             if (ld != null)

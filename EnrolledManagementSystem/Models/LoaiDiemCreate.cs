@@ -1,6 +1,6 @@
 ﻿namespace EnrolledManagementSystem.Models
 {
-    public class LoaiDiemModel
+    public class LoaiDiemCreate
     {
         public string MaLoaiDiem { get; set; }
         public string TenLoaiDiem { get; set; }

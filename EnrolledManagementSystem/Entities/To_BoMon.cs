@@ -11,7 +11,6 @@ namespace EnrolledManagementSystem.Entities
         public int MaToBoMon { get; set; }
         [StringLength(100)]
         public string TenToBoMon { get; set; }
-        public ICollection<LopHoc> LopHocs { get; set; }
         public ICollection<MonHoc> MonHoc { get; set; }
     }
 }

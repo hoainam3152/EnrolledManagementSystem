@@ -20,9 +20,8 @@ builder.Services.AddScoped<ToBoMonService>();
 builder.Services.AddScoped<NienKhoaService>();
 builder.Services.AddScoped<KhoaService>();
 builder.Services.AddScoped<MonHocService>();
-//builder.Services.AddScoped<LoaiDiemService>();
-//builder.Services.AddScoped<KhoaKhoiService>();
-//builder.Services.AddScoped<ToBoMonService>();
+builder.Services.AddScoped<LopHocService>();
+builder.Services.AddScoped<LoaiDiemMonService>();
 
 var app = builder.Build();
 

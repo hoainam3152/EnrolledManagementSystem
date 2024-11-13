@@ -9,19 +9,17 @@ namespace EnrolledManagementSystem.Entities
         [Key]
         [StringLength(20)]
         public string MaLop { get; set; }
-        [Required]
         [StringLength(100)]
         public string TenLop { get; set; }
-        [Required]
         [StringLength(20)]
         public string MaNienKhoa { get; set; }
-        [Required]
         [StringLength(20)]
         public string MaKhoaKhoi { get; set; }
         public int SoLuongHocVien { get; set; }
         public double HocPhi { get; set; }
-        public string? MoTa { get; set; } = null;
-        public string? HinhAnh { get; set; } = null;
+        public string? MoTa { get; set; }
+        [StringLength(255)]
+        public string? HinhAnh { get; set; }
 
         [ForeignKey("MaNienKhoa")]
         public NienKhoa NienKhoa { get; set; }

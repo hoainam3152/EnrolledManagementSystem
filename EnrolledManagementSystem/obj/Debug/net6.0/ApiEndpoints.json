@@ -237,6 +237,194 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiDiemMonController",
+    "Method": "Get",
+    "RelativePath": "LoaiDiemMon",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiDiemMonController",
+    "Method": "Create",
+    "RelativePath": "LoaiDiemMon",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ldm",
+        "Type": "EnrolledManagementSystem.DTO.Requests.LoaiDiemMonCreate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiDiemMonController",
+    "Method": "Details",
+    "RelativePath": "LoaiDiemMon/Detail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maKhoa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maMon",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maLoai",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiDiemMonController",
+    "Method": "Update",
+    "RelativePath": "LoaiDiemMon/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maKhoa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maMon",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maLoai",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ldm",
+        "Type": "EnrolledManagementSystem.DTO.Requests.LoaiDiemMonUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiDiemMonController",
+    "Method": "Delete",
+    "RelativePath": "LoaiDiemMon/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maKhoa",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maMon",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maLoai",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LopHocController",
+    "Method": "Get",
+    "RelativePath": "LopHoc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LopHocController",
+    "Method": "Create",
+    "RelativePath": "LopHoc",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "lh",
+        "Type": "EnrolledManagementSystem.DTO.Requests.LopHocCreate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LopHocController",
+    "Method": "Details",
+    "RelativePath": "LopHoc/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LopHocController",
+    "Method": "Update",
+    "RelativePath": "LopHoc/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "lh",
+        "Type": "EnrolledManagementSystem.DTO.Requests.LopHocUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LopHocController",
+    "Method": "Delete",
+    "RelativePath": "LopHoc/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EnrolledManagementSystem.Controllers.MonHocController",
     "Method": "Get",
     "RelativePath": "MonHoc",

@@ -53,7 +53,7 @@ namespace EnrolledManagementSystem.Services
                         MaToBoMon = mh.MaToBoMon,
                         MaKhoaKhoi = mh.MaKhoaKhoi
                     })
-                    .FirstOrDefaultAsync(k => k.MaMonHoc == request.MaMonHoc);
+                    .FirstOrDefaultAsync(mh => mh.MaMonHoc == request.MaMonHoc);
                 if (monHoc == null)
                 {
                     _context.MonHocs.Add(new MonHoc()

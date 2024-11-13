@@ -2,11 +2,11 @@
 
 namespace EnrolledManagementSystem.DTO.Requests
 {
-    public class KhoaKhoiCreate
+    public class NienKhoaCreate
     {
         [Required]
-        public string MaKhoaKhoi { get; set; }
+        public string MaNienKhoa { get; set; }
         [Required]
-        public string TenKhoaKhoi { get; set; }
+        public string TenNiemKhoa { get; set; }
     }
 }

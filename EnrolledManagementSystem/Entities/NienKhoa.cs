@@ -9,7 +9,6 @@ namespace EnrolledManagementSystem.Entities
         [Key]
         [StringLength(20)]
         public string MaNienKhoa { get; set; }
-        [Required]
         [StringLength(20)]
         public string TenNiemKhoa { get; set; }
 

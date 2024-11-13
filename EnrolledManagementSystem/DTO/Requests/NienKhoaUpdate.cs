@@ -2,9 +2,9 @@
 
 namespace EnrolledManagementSystem.DTO.Requests
 {
-    public class ToBoMonRequest
+    public class NienKhoaUpdate
     {
         [Required]
-        public string TenToBoMon { get; set; }
+        public string TenNiemKhoa { get; set; }
     }
 }

@@ -9,10 +9,9 @@ namespace EnrolledManagementSystem.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)] //thiết lập tự động tăng
         public int MaToBoMon { get; set; }
-
-        [Required]
         [StringLength(100)]
         public string TenToBoMon { get; set; }
         public ICollection<LopHoc> LopHocs { get; set; }
+        public ICollection<MonHoc> MonHoc { get; set; }
     }
 }

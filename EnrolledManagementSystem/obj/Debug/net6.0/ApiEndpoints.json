@@ -1,5 +1,84 @@
 [
   {
+    "ContainingType": "EnrolledManagementSystem.Controllers.KhoaController",
+    "Method": "Get",
+    "RelativePath": "Khoa",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.KhoaController",
+    "Method": "Create",
+    "RelativePath": "Khoa",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "k",
+        "Type": "EnrolledManagementSystem.DTO.Requests.KhoaCreate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.KhoaController",
+    "Method": "Details",
+    "RelativePath": "Khoa/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.KhoaController",
+    "Method": "Update",
+    "RelativePath": "Khoa/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "k",
+        "Type": "EnrolledManagementSystem.DTO.Requests.KhoaUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.KhoaController",
+    "Method": "Delete",
+    "RelativePath": "Khoa/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EnrolledManagementSystem.Controllers.KhoaKhoiController",
     "Method": "Get",
     "RelativePath": "KhoaKhoi",
@@ -145,6 +224,164 @@
     "ContainingType": "EnrolledManagementSystem.Controllers.LoaiDiemController",
     "Method": "Delete",
     "RelativePath": "LoaiDiem/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.MonHocController",
+    "Method": "Get",
+    "RelativePath": "MonHoc",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.MonHocController",
+    "Method": "Create",
+    "RelativePath": "MonHoc",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mh",
+        "Type": "EnrolledManagementSystem.DTO.Requests.MonHocCreate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.MonHocController",
+    "Method": "Details",
+    "RelativePath": "MonHoc/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.MonHocController",
+    "Method": "Update",
+    "RelativePath": "MonHoc/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "mh",
+        "Type": "EnrolledManagementSystem.DTO.Requests.MonHocUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.MonHocController",
+    "Method": "Delete",
+    "RelativePath": "MonHoc/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NienKhoaController",
+    "Method": "Get",
+    "RelativePath": "NienKhoa",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NienKhoaController",
+    "Method": "Create",
+    "RelativePath": "NienKhoa",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nk",
+        "Type": "EnrolledManagementSystem.DTO.Requests.NienKhoaCreate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NienKhoaController",
+    "Method": "Details",
+    "RelativePath": "NienKhoa/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NienKhoaController",
+    "Method": "Update",
+    "RelativePath": "NienKhoa/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "nk",
+        "Type": "EnrolledManagementSystem.DTO.Requests.NienKhoaUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NienKhoaController",
+    "Method": "Delete",
+    "RelativePath": "NienKhoa/id",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

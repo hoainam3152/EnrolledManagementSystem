@@ -10,7 +10,7 @@ namespace EnrolledManagementSystem.Entities
         [StringLength(20)]
         public string MaNienKhoa { get; set; }
         [StringLength(20)]
-        public string TenNiemKhoa { get; set; }
+        public string TenNienKhoa { get; set; }
 
         public ICollection<LopHoc> LopHocs { get; set; }
     }

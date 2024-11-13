@@ -1,19 +1,19 @@
 ﻿using CoreApiResponse;
+using EnrolledManagementSystem.DTO.Requests;
+using EnrolledManagementSystem.Enums;
 using EnrolledManagementSystem.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using EnrolledManagementSystem.Enums;
-using EnrolledManagementSystem.DTO.Requests;
 
 namespace EnrolledManagementSystem.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class KhoaKhoiController : BaseController
+    public class NienKhoaController : BaseController
     {
-        private readonly KhoaKhoiService _service;
+        private readonly NienKhoaService _service;
 
-        public KhoaKhoiController(KhoaKhoiService service) 
+        public NienKhoaController(NienKhoaService service)
         {
             _service = service;
         }
@@ -23,10 +23,10 @@ namespace EnrolledManagementSystem.Controllers
         {
             try
             {
-                var khoaKhois = await _service.GetAll();
-                if (khoaKhois.Any())
+                var nienKhoas = await _service.GetAll();
+                if (nienKhoas.Any())
                 {
-                    return CustomResult(khoaKhois, HttpStatusCode.OK);
+                    return CustomResult(nienKhoas, HttpStatusCode.OK);
                 }
                 return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
             }
@@ -43,10 +43,10 @@ namespace EnrolledManagementSystem.Controllers
             {
                 try
                 {
-                    var khoaKhois = await _service.GetById(id);
-                    if (khoaKhois != null)
+                    var nienKhoas = await _service.GetById(id);
+                    if (nienKhoas != null)
                     {
-                        return CustomResult(khoaKhois, HttpStatusCode.OK);
+                        return CustomResult(nienKhoas, HttpStatusCode.OK);
                     }
                     return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
                 }
@@ -54,25 +54,26 @@ namespace EnrolledManagementSystem.Controllers
                 {
                     return BadRequest(ex.Message);
                 }
-            } else
+            }
+            else
             {
                 return BadRequest(ModelState);
             }
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(KhoaKhoiCreate kk)
+        public async Task<IActionResult> Create(NienKhoaCreate nk)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var khoaKhoi = await _service.Add(kk);
+                    var khoaKhoi = await _service.Add(nk);
                     if (khoaKhoi == null)
                     {
                         return CustomResult(
                             ResponseMessage.CREATED_SUCCESSFULLY,
-                            kk,
+                            nk,
                             HttpStatusCode.Created
                             );
                     }
@@ -90,13 +91,13 @@ namespace EnrolledManagementSystem.Controllers
         }
 
         [HttpPut("id")]
-        public async Task<IActionResult> Update(string id, KhoaKhoiUpdate kk)
+        public async Task<IActionResult> Update(string id, NienKhoaUpdate nk)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var khoaKhoi = await _service.Update(id, kk);
+                    var khoaKhoi = await _service.Update(id, nk);
                     if (khoaKhoi != null)
                     {
                         return CustomResult(
@@ -124,8 +125,8 @@ namespace EnrolledManagementSystem.Controllers
             {
                 try
                 {
-                    var khoaKhoi = await _service.Delete(id);
-                    if (khoaKhoi != null)
+                    var nienKhoa = await _service.Delete(id);
+                    if (nienKhoa != null)
                     {
                         return CustomResult(ResponseMessage.DELETED_SUCCESSFULLY, HttpStatusCode.OK);
                     }

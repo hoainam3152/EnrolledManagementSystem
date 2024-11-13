@@ -24,7 +24,7 @@ namespace EnrolledManagementSystem.Controllers
             try
             {
                 var loaiDiemList = await _service.GetAll();
-                if (loaiDiemList != null)
+                if (loaiDiemList.Any())
                 {
                     
                     return CustomResult(loaiDiemList, HttpStatusCode.OK);

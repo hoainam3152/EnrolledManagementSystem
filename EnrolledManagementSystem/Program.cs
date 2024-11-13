@@ -17,6 +17,12 @@ builder.Services.AddDbContext<ManagementDbContext>(option => option.UseSqlServer
 builder.Services.AddScoped<LoaiDiemService>();
 builder.Services.AddScoped<KhoaKhoiService>();
 builder.Services.AddScoped<ToBoMonService>();
+builder.Services.AddScoped<NienKhoaService>();
+builder.Services.AddScoped<KhoaService>();
+builder.Services.AddScoped<MonHocService>();
+//builder.Services.AddScoped<LoaiDiemService>();
+//builder.Services.AddScoped<KhoaKhoiService>();
+//builder.Services.AddScoped<ToBoMonService>();
 
 var app = builder.Build();
 

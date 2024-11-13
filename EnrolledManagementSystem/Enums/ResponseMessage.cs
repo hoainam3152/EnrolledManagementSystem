@@ -12,5 +12,6 @@
         public const string NOT_FOUND = "Not Found";
         public const string DATA_NOT_FOUND = "Data Not Found";
         public const string DUPLICATE_KEY = "Duplicate Key";
+        public const string REFERENCE_ERROR = "Reference Error";
     }
 }

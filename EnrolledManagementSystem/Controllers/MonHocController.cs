@@ -1,19 +1,19 @@
 ﻿using CoreApiResponse;
+using EnrolledManagementSystem.DTO.Requests;
+using EnrolledManagementSystem.Enums;
 using EnrolledManagementSystem.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Net;
-using EnrolledManagementSystem.Enums;
-using EnrolledManagementSystem.DTO.Requests;
 
 namespace EnrolledManagementSystem.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class KhoaKhoiController : BaseController
+    public class MonHocController : BaseController
     {
-        private readonly KhoaKhoiService _service;
-
-        public KhoaKhoiController(KhoaKhoiService service) 
+        private readonly MonHocService _service;
+        public MonHocController(MonHocService service)
         {
             _service = service;
         }
@@ -23,10 +23,10 @@ namespace EnrolledManagementSystem.Controllers
         {
             try
             {
-                var khoaKhois = await _service.GetAll();
-                if (khoaKhois.Any())
+                var monhocs = await _service.GetAll();
+                if (monhocs.Any())
                 {
-                    return CustomResult(khoaKhois, HttpStatusCode.OK);
+                    return CustomResult(monhocs, HttpStatusCode.OK);
                 }
                 return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
             }
@@ -43,10 +43,10 @@ namespace EnrolledManagementSystem.Controllers
             {
                 try
                 {
-                    var khoaKhois = await _service.GetById(id);
-                    if (khoaKhois != null)
+                    var monHocs = await _service.GetById(id);
+                    if (monHocs != null)
                     {
-                        return CustomResult(khoaKhois, HttpStatusCode.OK);
+                        return CustomResult(monHocs, HttpStatusCode.OK);
                     }
                     return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
                 }
@@ -54,29 +54,34 @@ namespace EnrolledManagementSystem.Controllers
                 {
                     return BadRequest(ex.Message);
                 }
-            } else
+            }
+            else
             {
                 return BadRequest(ModelState);
             }
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(KhoaKhoiCreate kk)
+        public async Task<IActionResult> Create(MonHocCreate mh)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var khoaKhoi = await _service.Add(kk);
-                    if (khoaKhoi == null)
+                    var monHocs = await _service.Add(mh);
+                    if (monHocs == null)
                     {
                         return CustomResult(
                             ResponseMessage.CREATED_SUCCESSFULLY,
-                            kk,
+                            mh,
                             HttpStatusCode.Created
                             );
                     }
                     return CustomResult(ResponseMessage.DUPLICATE_KEY, HttpStatusCode.Conflict);
+                }
+                catch (DbUpdateException db)
+                {
+                    return CustomResult(ResponseMessage.REFERENCE_ERROR, HttpStatusCode.BadRequest);
                 }
                 catch (Exception ex)
                 {
@@ -90,21 +95,26 @@ namespace EnrolledManagementSystem.Controllers
         }
 
         [HttpPut("id")]
-        public async Task<IActionResult> Update(string id, KhoaKhoiUpdate kk)
+        public async Task<IActionResult> Update(string id, MonHocUpdate mh)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var khoaKhoi = await _service.Update(id, kk);
-                    if (khoaKhoi != null)
+                    var monHocs = await _service.Update(id, mh);
+                    if (monHocs != null)
                     {
                         return CustomResult(
                             ResponseMessage.UPDATED_SUCCESSFULLY,
-                            khoaKhoi,
+                            monHocs,
                             HttpStatusCode.OK);
                     }
                     return CustomResult(ResponseMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
+                }
+                catch (DbUpdateException db)
+                {
+                    Console.WriteLine(db.Message);
+                    return CustomResult(ResponseMessage.REFERENCE_ERROR, HttpStatusCode.BadRequest);
                 }
                 catch (Exception ex)
                 {
@@ -124,12 +134,17 @@ namespace EnrolledManagementSystem.Controllers
             {
                 try
                 {
-                    var khoaKhoi = await _service.Delete(id);
-                    if (khoaKhoi != null)
+                    var monHocs = await _service.Delete(id);
+                    if (monHocs != null)
                     {
                         return CustomResult(ResponseMessage.DELETED_SUCCESSFULLY, HttpStatusCode.OK);
                     }
                     return CustomResult(ResponseMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
+                }
+                catch (DbUpdateException db)
+                {
+                    Console.WriteLine(db.Message);
+                    return CustomResult(ResponseMessage.REFERENCE_ERROR, HttpStatusCode.BadRequest);
                 }
                 catch (Exception ex)
                 {

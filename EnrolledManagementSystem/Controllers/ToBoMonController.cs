@@ -24,7 +24,7 @@ namespace EnrolledManagementSystem.Controllers
             try
             {
                 var toBoMons = await _service.GetAll();
-                if (toBoMons != null)
+                if (toBoMons.Any())
                 {
                     return CustomResult(toBoMons, HttpStatusCode.OK);
                 }

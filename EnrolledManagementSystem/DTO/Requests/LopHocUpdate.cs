@@ -13,7 +13,7 @@ namespace EnrolledManagementSystem.DTO.Requests
         [Required]
         public int SoLuongHocVien { get; set; }
         [Required]
-        public double HocPhi { get; set; }
+        public decimal HocPhi { get; set; }
         public string? MoTa { get; set; } = null;
         public string? HinhAnh { get; set; } = null;
     }

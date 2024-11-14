@@ -12,7 +12,7 @@ namespace EnrolledManagementSystem.Entities
         [StringLength(100)]
         public string TenKhoaKhoi { get; set; }
 
-        public ICollection<LopHoc> LopHocs { get; set; }
-        public ICollection<MonHoc> MonHocs { get; set; }
+        public ICollection<LopHoc> lopHocs { get; set; }
+        public ICollection<MonHoc> monHocs { get; set; }
     }
 }

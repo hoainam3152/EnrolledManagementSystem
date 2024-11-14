@@ -10,7 +10,7 @@ namespace EnrolledManagementSystem.DTO.Responses
         public string MaNienKhoa { get; set; }
         public string MaKhoaKhoi { get; set; }
         public int SoLuongHocVien { get; set; }
-        public double HocPhi { get; set; }
+        public decimal HocPhi { get; set; }
         public string? MoTa { get; set; } = null;
         public string? HinhAnh { get; set; } = null;
 

@@ -4,6 +4,7 @@ using EnrolledManagementSystem.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EnrolledManagementSystem.Migrations
 {
     [DbContext(typeof(ManagementDbContext))]
-    partial class ManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241114031108_AddTable_LoaiHocPhi_PhieuThuHP")]
+    partial class AddTable_LoaiHocPhi_PhieuThuHP
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -181,35 +183,6 @@ namespace EnrolledManagementSystem.Migrations
                     b.HasKey("MaKhoaKhoi");
 
                     b.ToTable("Khoa_Khoi");
-                });
-
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.LichNghi", b =>
-                {
-                    b.Property<int>("MaLichNghi")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaLichNghi"), 1L, 1);
-
-                    b.Property<string>("LyDo")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("TenNgayNghi")
-                        .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
-
-                    b.Property<DateTime>("ThoiGianBatDau")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ThoiGianKetThuc")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("MaLichNghi");
-
-                    b.ToTable("LichNghi");
                 });
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.LoaiDiem", b =>

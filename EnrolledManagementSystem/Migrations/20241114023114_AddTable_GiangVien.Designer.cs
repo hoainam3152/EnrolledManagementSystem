@@ -4,6 +4,7 @@ using EnrolledManagementSystem.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EnrolledManagementSystem.Migrations
 {
     [DbContext(typeof(ManagementDbContext))]
-    partial class ManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241114023114_AddTable_GiangVien")]
+    partial class AddTable_GiangVien
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,35 +185,6 @@ namespace EnrolledManagementSystem.Migrations
                     b.ToTable("Khoa_Khoi");
                 });
 
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.LichNghi", b =>
-                {
-                    b.Property<int>("MaLichNghi")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaLichNghi"), 1L, 1);
-
-                    b.Property<string>("LyDo")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("TenNgayNghi")
-                        .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
-
-                    b.Property<DateTime>("ThoiGianBatDau")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ThoiGianKetThuc")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("MaLichNghi");
-
-                    b.ToTable("LichNghi");
-                });
-
             modelBuilder.Entity("EnrolledManagementSystem.Entities.LoaiDiem", b =>
                 {
                     b.Property<string>("MaLoaiDiem")
@@ -260,22 +233,6 @@ namespace EnrolledManagementSystem.Migrations
                     b.ToTable("LoaiDiemMon");
                 });
 
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.LoaiHocPhi", b =>
-                {
-                    b.Property<string>("MaLoaiHocPhi")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("TenLoaiHocPhi")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("MaLoaiHocPhi");
-
-                    b.ToTable("LoaiHocPhi");
-                });
-
             modelBuilder.Entity("EnrolledManagementSystem.Entities.LopHoc", b =>
                 {
                     b.Property<string>("MaLop")
@@ -286,8 +243,8 @@ namespace EnrolledManagementSystem.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<decimal>("HocPhi")
-                        .HasColumnType("decimal(10,2)");
+                    b.Property<double>("HocPhi")
+                        .HasColumnType("float");
 
                     b.Property<string>("MaKhoaKhoi")
                         .IsRequired()
@@ -407,46 +364,6 @@ namespace EnrolledManagementSystem.Migrations
                     b.ToTable("PhanCongGiangDay");
                 });
 
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.PhieuThuHocPhi", b =>
-                {
-                    b.Property<string>("MaPhieu")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<decimal>("GiamGia")
-                        .HasColumnType("decimal(10,2)");
-
-                    b.Property<string>("MaLoaiHocPhi")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("MaLop")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("Mota")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<decimal>("MucThuPhi")
-                        .HasColumnType("decimal(10,2)");
-
-                    b.Property<DateTime>("NgayTao")
-                        .HasMaxLength(20)
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("MaPhieu");
-
-                    b.HasIndex("MaLoaiHocPhi");
-
-                    b.HasIndex("MaLop");
-
-                    b.ToTable("PhieuThuHocPhi");
-                });
-
             modelBuilder.Entity("EnrolledManagementSystem.Entities.To_BoMon", b =>
                 {
                     b.Property<int>("MaToBoMon")
@@ -468,7 +385,7 @@ namespace EnrolledManagementSystem.Migrations
             modelBuilder.Entity("EnrolledManagementSystem.Entities.GiangVien", b =>
                 {
                     b.HasOne("EnrolledManagementSystem.Entities.MonHoc", "MonChinh")
-                        .WithMany("giangViens")
+                        .WithMany()
                         .HasForeignKey("MaMonDayChinh")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -479,7 +396,7 @@ namespace EnrolledManagementSystem.Migrations
             modelBuilder.Entity("EnrolledManagementSystem.Entities.HocVien", b =>
                 {
                     b.HasOne("EnrolledManagementSystem.Entities.LopHoc", "LopHoc")
-                        .WithMany("hocViens")
+                        .WithMany()
                         .HasForeignKey("MaLopHoc")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -579,25 +496,6 @@ namespace EnrolledManagementSystem.Migrations
                     b.Navigation("MonHoc");
                 });
 
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.PhieuThuHocPhi", b =>
-                {
-                    b.HasOne("EnrolledManagementSystem.Entities.LoaiHocPhi", "LoaiHocPhi")
-                        .WithMany("phieuThuHocPhis")
-                        .HasForeignKey("MaLoaiHocPhi")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EnrolledManagementSystem.Entities.LopHoc", "LopHoc")
-                        .WithMany("phieuThuHocPhis")
-                        .HasForeignKey("MaLop")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("LoaiHocPhi");
-
-                    b.Navigation("LopHoc");
-                });
-
             modelBuilder.Entity("EnrolledManagementSystem.Entities.GiangVien", b =>
                 {
                     b.Navigation("phanCongGiangDays");
@@ -620,24 +518,13 @@ namespace EnrolledManagementSystem.Migrations
                     b.Navigation("loaiDiemMons");
                 });
 
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.LoaiHocPhi", b =>
-                {
-                    b.Navigation("phieuThuHocPhis");
-                });
-
             modelBuilder.Entity("EnrolledManagementSystem.Entities.LopHoc", b =>
                 {
-                    b.Navigation("hocViens");
-
                     b.Navigation("phanCongGiangDays");
-
-                    b.Navigation("phieuThuHocPhis");
                 });
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.MonHoc", b =>
                 {
-                    b.Navigation("giangViens");
-
                     b.Navigation("loaiDiemMons");
 
                     b.Navigation("phanCongGiangDays");

@@ -16,7 +16,8 @@ namespace EnrolledManagementSystem.Entities
         [StringLength(20)]
         public string MaKhoaKhoi { get; set; }
         public int SoLuongHocVien { get; set; }
-        public double HocPhi { get; set; }
+        [Column(TypeName = "decimal(10,2)")]
+        public decimal HocPhi { get; set; }
         public string? MoTa { get; set; }
         [StringLength(255)]
         public string? HinhAnh { get; set; }
@@ -25,5 +26,9 @@ namespace EnrolledManagementSystem.Entities
         public NienKhoa NienKhoa { get; set; }
         [ForeignKey("MaKhoaKhoi")]
         public Khoa_Khoi Khoa_Khoi { get; set; }
+
+        public ICollection<PhanCongGiangDay> phanCongGiangDays { get; set; }
+        public ICollection<HocVien> hocViens { get; set; }
+        public ICollection<PhieuThuHocPhi> phieuThuHocPhis { get; set; }
     }
 }

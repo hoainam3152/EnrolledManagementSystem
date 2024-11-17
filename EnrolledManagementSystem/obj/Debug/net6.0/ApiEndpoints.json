@@ -1,5 +1,84 @@
 [
   {
+    "ContainingType": "EnrolledManagementSystem.Controllers.ChucVuController",
+    "Method": "Get",
+    "RelativePath": "ChucVu",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.ChucVuController",
+    "Method": "Create",
+    "RelativePath": "ChucVu",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cv",
+        "Type": "EnrolledManagementSystem.DTO.Requests.ChucVuRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.ChucVuController",
+    "Method": "Details",
+    "RelativePath": "ChucVu/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.ChucVuController",
+    "Method": "Update",
+    "RelativePath": "ChucVu/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "cv",
+        "Type": "EnrolledManagementSystem.DTO.Requests.ChucVuRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.ChucVuController",
+    "Method": "Delete",
+    "RelativePath": "ChucVu/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EnrolledManagementSystem.Controllers.DangKyController",
     "Method": "Get",
     "RelativePath": "DangKy",
@@ -82,6 +161,115 @@
       },
       {
         "Name": "maLH",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.DiemController",
+    "Method": "Get",
+    "RelativePath": "Diem",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.DiemController",
+    "Method": "Create",
+    "RelativePath": "Diem",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dd",
+        "Type": "EnrolledManagementSystem.DTO.Requests.DiemCreate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.DiemController",
+    "Method": "Details",
+    "RelativePath": "Diem/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maMH",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maLD",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maHV",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.DiemController",
+    "Method": "Update",
+    "RelativePath": "Diem/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maMH",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maLD",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maHV",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "dd",
+        "Type": "EnrolledManagementSystem.DTO.Requests.DiemUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.DiemController",
+    "Method": "Delete",
+    "RelativePath": "Diem/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maMH",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maLD",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maHV",
         "Type": "System.String",
         "IsRequired": false
       }
@@ -830,6 +1018,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NhanVienController",
+    "Method": "Get",
+    "RelativePath": "NhanVien",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NhanVienController",
+    "Method": "Create",
+    "RelativePath": "NhanVien",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nvc",
+        "Type": "EnrolledManagementSystem.DTO.Requests.NhanVienCreate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NhanVienController",
+    "Method": "Details",
+    "RelativePath": "NhanVien/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NhanVienController",
+    "Method": "Update",
+    "RelativePath": "NhanVien/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "nvc",
+        "Type": "EnrolledManagementSystem.DTO.Requests.NhanVienUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NhanVienController",
+    "Method": "Delete",
+    "RelativePath": "NhanVien/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EnrolledManagementSystem.Controllers.NienKhoaController",
     "Method": "Get",
     "RelativePath": "NienKhoa",
@@ -1012,6 +1279,85 @@
       {
         "Name": "maGV",
         "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhieuLuongNhanVienController",
+    "Method": "Get",
+    "RelativePath": "PhieuLuongNhanVien",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhieuLuongNhanVienController",
+    "Method": "Create",
+    "RelativePath": "PhieuLuongNhanVien",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pl",
+        "Type": "EnrolledManagementSystem.DTO.Requests.PhieuLuongCreate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhieuLuongNhanVienController",
+    "Method": "Details",
+    "RelativePath": "PhieuLuongNhanVien/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhieuLuongNhanVienController",
+    "Method": "Update",
+    "RelativePath": "PhieuLuongNhanVien/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pl",
+        "Type": "EnrolledManagementSystem.DTO.Requests.PhieuLuongUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhieuLuongNhanVienController",
+    "Method": "Delete",
+    "RelativePath": "PhieuLuongNhanVien/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

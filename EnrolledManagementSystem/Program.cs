@@ -28,9 +28,15 @@ builder.Services.AddScoped<HocVienService>();
 builder.Services.AddScoped<DangKyService>();
 builder.Services.AddScoped<LoaiHocPhiService>();
 builder.Services.AddScoped<PhieuThuHocPhiService>();
-//builder.Services.AddScoped<LoaiDiemMonService>();
-//builder.Services.AddScoped<LoaiDiemMonService>();
-//builder.Services.AddScoped<LoaiDiemMonService>();
+builder.Services.AddScoped<DiemService>();
+builder.Services.AddScoped<ChucVuService>();
+builder.Services.AddScoped<NhanVienService>();
+builder.Services.AddScoped<PhieuLuongService>();
+//builder.Services.AddScoped<NhanVienService>();
+//builder.Services.AddScoped<NhanVienService>();
+//builder.Services.AddScoped<NhanVienService>();
+//builder.Services.AddScoped<NhanVienService>();
+//builder.Services.AddScoped<NhanVienService>();
 
 var app = builder.Build();
 

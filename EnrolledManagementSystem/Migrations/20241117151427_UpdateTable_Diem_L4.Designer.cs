@@ -4,6 +4,7 @@ using EnrolledManagementSystem.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EnrolledManagementSystem.Migrations
 {
     [DbContext(typeof(ManagementDbContext))]
-    partial class ManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241117151427_UpdateTable_Diem_L4")]
+    partial class UpdateTable_Diem_L4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -602,7 +604,7 @@ namespace EnrolledManagementSystem.Migrations
                     b.Property<DateTime>("NgayInPhieu")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal?>("SoTienPhuCap")
+                    b.Property<decimal>("SoTienPhuCap")
                         .HasColumnType("decimal(10,2)");
 
                     b.Property<string>("TenPhieu")

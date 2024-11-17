@@ -98,9 +98,6 @@ namespace EnrolledManagementSystem.Entities
             //Diem
             modelBuilder.Entity<Diem>(entity =>
             {
-                //Tao nhieu khoa chinh
-                entity.HasKey(e => new { e.MaMonHoc, e.MaLoaiDiem, e.MaHocVien });
-
                 //Tao khoa ngoai
                 entity.HasOne(e => e.MonHoc)
                     .WithMany(e => e.Diems)

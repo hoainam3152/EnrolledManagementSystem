@@ -4,6 +4,7 @@ using EnrolledManagementSystem.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EnrolledManagementSystem.Migrations
 {
     [DbContext(typeof(ManagementDbContext))]
-    partial class ManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241117150821_UpdateTable_Diem_L3")]
+    partial class UpdateTable_Diem_L3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,40 +64,29 @@ namespace EnrolledManagementSystem.Migrations
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.Diem", b =>
                 {
-                    b.Property<int>("MaDiem")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaDiem"), 1L, 1);
-
-                    b.Property<bool?>("DaChot")
-                        .HasColumnType("bit");
-
-                    b.Property<float>("DiemMon")
-                        .HasColumnType("real");
-
-                    b.Property<string>("MaHocVien")
-                        .IsRequired()
+                    b.Property<string>("MaMonHoc")
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("MaLoaiDiem")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("MaMonHoc")
-                        .IsRequired()
+                    b.Property<string>("MaHocVien")
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.HasKey("MaDiem");
+                    b.Property<float>("DiemMon")
+                        .HasColumnType("real");
+
+                    b.Property<bool?>("DaChot")
+                        .HasColumnType("bit");
+
+                    b.HasKey("MaMonHoc", "MaLoaiDiem", "MaHocVien", "DiemMon");
 
                     b.HasIndex("MaHocVien");
 
                     b.HasIndex("MaLoaiDiem");
-
-                    b.HasIndex("MaMonHoc");
 
                     b.ToTable("Diem");
                 });
@@ -602,7 +593,7 @@ namespace EnrolledManagementSystem.Migrations
                     b.Property<DateTime>("NgayInPhieu")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal?>("SoTienPhuCap")
+                    b.Property<decimal>("SoTienPhuCap")
                         .HasColumnType("decimal(10,2)");
 
                     b.Property<string>("TenPhieu")

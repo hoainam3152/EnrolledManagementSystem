@@ -20,7 +20,7 @@ namespace EnrolledManagementSystem.Entities
         [StringLength(100)]
         public string? TenPhuCap { get; set; }
         [Column(TypeName = "decimal(10,2)")]
-        public decimal SoTienPhuCap { get; set; }
+        public decimal? SoTienPhuCap { get; set; }
         [StringLength(255)]
         public string? GhiChu { get; set; }
         public bool DaChotLuong { get; set; }

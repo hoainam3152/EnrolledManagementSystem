@@ -48,7 +48,7 @@ namespace EnrolledManagementSystem.Controllers
                     {
                         return CustomResult(toBoMons, HttpStatusCode.OK);
                     }
-                    return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
+                    return CustomResult(ResponseMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
                 }
                 catch (Exception ex)
                 {

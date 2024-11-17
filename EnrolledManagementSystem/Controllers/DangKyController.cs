@@ -11,10 +11,10 @@ namespace EnrolledManagementSystem.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PhanCongGiangDayController : BaseController
+    public class DangKyController : BaseController
     {
-        private readonly PhanCongGiangDayService _service;
-        public PhanCongGiangDayController(PhanCongGiangDayService service)
+        private readonly DangKyService _service;
+        public DangKyController(DangKyService service)
         {
             _service = service;
         }
@@ -24,10 +24,10 @@ namespace EnrolledManagementSystem.Controllers
         {
             try
             {
-                var phanCongs = await _service.GetAll();
-                if (phanCongs.Any())
+                var dangKys = await _service.GetAll();
+                if (dangKys.Any())
                 {
-                    return CustomResult(phanCongs, HttpStatusCode.OK);
+                    return CustomResult(dangKys, HttpStatusCode.OK);
                 }
                 return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
             }
@@ -38,16 +38,16 @@ namespace EnrolledManagementSystem.Controllers
         }
 
         [HttpGet("Detail")]
-        public async Task<IActionResult> Details(string maLH, string maMH, string maGV)
+        public async Task<IActionResult> Details(string maHV, string maLH)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var phanCong = await _service.GetById(maLH, maMH, maGV);
-                    if (phanCong != null)
+                    var dangKy = await _service.GetById(maHV, maLH);
+                    if (dangKy != null)
                     {
-                        return CustomResult(phanCong, HttpStatusCode.OK);
+                        return CustomResult(dangKy, HttpStatusCode.OK);
                     }
                     return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
                 }
@@ -63,18 +63,19 @@ namespace EnrolledManagementSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(PhanCongGiangDayCreate pc)
+        public async Task<IActionResult> Create(DangKyRequest dk)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var phanCong = await _service.Add(pc);
-                    if (phanCong == null)
+                    var dangKy = await _service.Add(dk);
+                    if (dangKy == null)
                     {
+                        var response = await _service.GetById(dk.MaHocVien, dk.MaLopHoc);
                         return CustomResult(
                             ResponseMessage.CREATED_SUCCESSFULLY,
-                            pc,
+                            response,
                             HttpStatusCode.Created
                             );
                     }
@@ -96,18 +97,18 @@ namespace EnrolledManagementSystem.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update(string maLH, string maMH, string maGV, PhanCongGiangDayUpdate pc)
+        public async Task<IActionResult> Update(string maHV, string maLH)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var phanCong = await _service.Update(maLH, maMH, maGV, pc);
-                    if (phanCong != null)
+                    var dangKy = await _service.Update(maHV, maLH);
+                    if (dangKy != null)
                     {
                         return CustomResult(
                             ResponseMessage.UPDATED_SUCCESSFULLY,
-                            phanCong,
+                            dangKy,
                             HttpStatusCode.OK);
                     }
                     return CustomResult(ResponseMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
@@ -128,14 +129,14 @@ namespace EnrolledManagementSystem.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete(string maLH, string maMH, string maGV)
+        public async Task<IActionResult> Delete(string maHV, string maLH)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var phanCong = await _service.Delete(maLH, maMH, maGV);
-                    if (phanCong != null)
+                    var dangKy = await _service.Delete(maHV, maLH);
+                    if (dangKy != null)
                     {
                         return CustomResult(ResponseMessage.DELETED_SUCCESSFULLY, HttpStatusCode.OK);
                     }

@@ -11,10 +11,10 @@ namespace EnrolledManagementSystem.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PhanCongGiangDayController : BaseController
+    public class PhieuThuHocPhiController : BaseController
     {
-        private readonly PhanCongGiangDayService _service;
-        public PhanCongGiangDayController(PhanCongGiangDayService service)
+        private readonly PhieuThuHocPhiService _service;
+        public PhieuThuHocPhiController(PhieuThuHocPhiService service)
         {
             _service = service;
         }
@@ -24,10 +24,10 @@ namespace EnrolledManagementSystem.Controllers
         {
             try
             {
-                var phanCongs = await _service.GetAll();
-                if (phanCongs.Any())
+                var phieuThus = await _service.GetAll();
+                if (phieuThus.Any())
                 {
-                    return CustomResult(phanCongs, HttpStatusCode.OK);
+                    return CustomResult(phieuThus, HttpStatusCode.OK);
                 }
                 return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
             }
@@ -37,17 +37,17 @@ namespace EnrolledManagementSystem.Controllers
             }
         }
 
-        [HttpGet("Detail")]
-        public async Task<IActionResult> Details(string maLH, string maMH, string maGV)
+        [HttpGet("id")]
+        public async Task<IActionResult> Details(int id)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var phanCong = await _service.GetById(maLH, maMH, maGV);
-                    if (phanCong != null)
+                    var phieuThu = await _service.GetById(id);
+                    if (phieuThu != null)
                     {
-                        return CustomResult(phanCong, HttpStatusCode.OK);
+                        return CustomResult(phieuThu, HttpStatusCode.OK);
                     }
                     return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
                 }
@@ -63,22 +63,18 @@ namespace EnrolledManagementSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(PhanCongGiangDayCreate pc)
+        public async Task<IActionResult> Create(PhieuThuHocPhiRequest pt)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var phanCong = await _service.Add(pc);
-                    if (phanCong == null)
-                    {
-                        return CustomResult(
-                            ResponseMessage.CREATED_SUCCESSFULLY,
-                            pc,
-                            HttpStatusCode.Created
-                            );
-                    }
-                    return CustomResult(ResponseMessage.DUPLICATE_KEY, HttpStatusCode.Conflict);
+                    var phieuThu = await _service.Add(pt);
+                    return CustomResult(
+                        ResponseMessage.CREATED_SUCCESSFULLY,
+                        phieuThu,
+                        HttpStatusCode.Created
+                        );
                 }
                 catch (DbUpdateException db)
                 {
@@ -95,19 +91,19 @@ namespace EnrolledManagementSystem.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Update(string maLH, string maMH, string maGV, PhanCongGiangDayUpdate pc)
+        [HttpPut("id")]
+        public async Task<IActionResult> Update(int id, PhieuThuHocPhiRequest pt)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var phanCong = await _service.Update(maLH, maMH, maGV, pc);
-                    if (phanCong != null)
+                    var phieuThu = await _service.Update(id, pt);
+                    if (phieuThu != null)
                     {
                         return CustomResult(
                             ResponseMessage.UPDATED_SUCCESSFULLY,
-                            phanCong,
+                            phieuThu,
                             HttpStatusCode.OK);
                     }
                     return CustomResult(ResponseMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
@@ -127,15 +123,15 @@ namespace EnrolledManagementSystem.Controllers
             }
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete(string maLH, string maMH, string maGV)
+        [HttpDelete("id")]
+        public async Task<IActionResult> Delete(int id)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var phanCong = await _service.Delete(maLH, maMH, maGV);
-                    if (phanCong != null)
+                    var phieuThu = await _service.Delete(id);
+                    if (phieuThu != null)
                     {
                         return CustomResult(ResponseMessage.DELETED_SUCCESSFULLY, HttpStatusCode.OK);
                     }

@@ -1,5 +1,94 @@
 [
   {
+    "ContainingType": "EnrolledManagementSystem.Controllers.DangKyController",
+    "Method": "Get",
+    "RelativePath": "DangKy",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.DangKyController",
+    "Method": "Create",
+    "RelativePath": "DangKy",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dk",
+        "Type": "EnrolledManagementSystem.DTO.Requests.DangKyRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.DangKyController",
+    "Method": "Update",
+    "RelativePath": "DangKy",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maHV",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maLH",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.DangKyController",
+    "Method": "Delete",
+    "RelativePath": "DangKy",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maHV",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maLH",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.DangKyController",
+    "Method": "Details",
+    "RelativePath": "DangKy/Detail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maHV",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maLH",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EnrolledManagementSystem.Controllers.GiangVienController",
     "Method": "Get",
     "RelativePath": "GiangVien",
@@ -66,6 +155,85 @@
     "ContainingType": "EnrolledManagementSystem.Controllers.GiangVienController",
     "Method": "Delete",
     "RelativePath": "GiangVien/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.HocVienController",
+    "Method": "Get",
+    "RelativePath": "HocVien",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.HocVienController",
+    "Method": "Create",
+    "RelativePath": "HocVien",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hv",
+        "Type": "EnrolledManagementSystem.DTO.Requests.HocVienCreate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.HocVienController",
+    "Method": "Details",
+    "RelativePath": "HocVien/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.HocVienController",
+    "Method": "Update",
+    "RelativePath": "HocVien/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "hv",
+        "Type": "EnrolledManagementSystem.DTO.Requests.HocVienUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.HocVienController",
+    "Method": "Delete",
+    "RelativePath": "HocVien/id",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -425,6 +593,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiHocPhiController",
+    "Method": "Get",
+    "RelativePath": "LoaiHocPhi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiHocPhiController",
+    "Method": "Create",
+    "RelativePath": "LoaiHocPhi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hp",
+        "Type": "EnrolledManagementSystem.DTO.Requests.LoaiHocPhiRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiHocPhiController",
+    "Method": "Details",
+    "RelativePath": "LoaiHocPhi/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiHocPhiController",
+    "Method": "Update",
+    "RelativePath": "LoaiHocPhi/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "hp",
+        "Type": "EnrolledManagementSystem.DTO.Requests.LoaiHocPhiRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.LoaiHocPhiController",
+    "Method": "Delete",
+    "RelativePath": "LoaiHocPhi/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EnrolledManagementSystem.Controllers.LopHocController",
     "Method": "Get",
     "RelativePath": "LopHoc",
@@ -689,34 +936,8 @@
   },
   {
     "ContainingType": "EnrolledManagementSystem.Controllers.PhanCongGiangDayController",
-    "Method": "Details",
-    "RelativePath": "PhanCongGiangDay/Detail",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "maLH",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "maMH",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "maGV",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EnrolledManagementSystem.Controllers.PhanCongGiangDayController",
     "Method": "Update",
-    "RelativePath": "PhanCongGiangDay/id",
+    "RelativePath": "PhanCongGiangDay",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -747,7 +968,7 @@
   {
     "ContainingType": "EnrolledManagementSystem.Controllers.PhanCongGiangDayController",
     "Method": "Delete",
-    "RelativePath": "PhanCongGiangDay/id",
+    "RelativePath": "PhanCongGiangDay",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -765,6 +986,111 @@
       {
         "Name": "maGV",
         "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhanCongGiangDayController",
+    "Method": "Details",
+    "RelativePath": "PhanCongGiangDay/Detail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maLH",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maMH",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maGV",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhieuThuHocPhiController",
+    "Method": "Get",
+    "RelativePath": "PhieuThuHocPhi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhieuThuHocPhiController",
+    "Method": "Create",
+    "RelativePath": "PhieuThuHocPhi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pt",
+        "Type": "EnrolledManagementSystem.DTO.Requests.PhieuThuHocPhiRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhieuThuHocPhiController",
+    "Method": "Details",
+    "RelativePath": "PhieuThuHocPhi/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhieuThuHocPhiController",
+    "Method": "Update",
+    "RelativePath": "PhieuThuHocPhi/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pt",
+        "Type": "EnrolledManagementSystem.DTO.Requests.PhieuThuHocPhiRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhieuThuHocPhiController",
+    "Method": "Delete",
+    "RelativePath": "PhieuThuHocPhi/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": false
       }
     ],

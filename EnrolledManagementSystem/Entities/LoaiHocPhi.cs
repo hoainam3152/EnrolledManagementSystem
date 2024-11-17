@@ -7,9 +7,8 @@ namespace EnrolledManagementSystem.Entities
     public class LoaiHocPhi
     {
         [Key]
-        [StringLength(20)]
-        public string MaLoaiHocPhi { get; set; }
-        [Required]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int MaLoaiHocPhi { get; set; }
         [StringLength(50)]
         public string TenLoaiHocPhi { get; set; }
 

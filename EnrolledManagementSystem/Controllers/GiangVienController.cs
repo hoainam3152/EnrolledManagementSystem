@@ -75,7 +75,7 @@ namespace EnrolledManagementSystem.Controllers
                         GiangVienResponse response = new GiangVienResponse()
                         {
                             ID = gv.MaGiangVien,
-                            HoTen = gv.Ho + gv.TenDemVaTen,
+                            HoTen = gv.Ho + " " + gv.TenDemVaTen,
                             NgaySinh = gv.NgaySinh,
                             GioiTinh = gv.GioiTinh,
                             Email = gv.Email,

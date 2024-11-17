@@ -8,19 +8,18 @@ namespace EnrolledManagementSystem.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int MaPhieuHocPhieu { get; set; }
+        public int MaPhieuThu { get; set; }
         [StringLength(20)]
         public string MaHocVien { get; set; }
         [StringLength(20)]
         public string MaLop { get; set; }
-        [StringLength(20)]
-        public string MaLoaiHocPhi { get; set; }
+        public int MaLoaiHocPhi { get; set; }
         [Column(TypeName = "decimal(10,2)")]
         public decimal MucThuPhi { get; set; }
         [Column(TypeName = "decimal(10,2)")]
-        public decimal GiamGia { get; set; }
+        public decimal? GiamGia { get; set; }
         [StringLength(255)]
-        public string Mota { get; set; }
+        public string? GhiChu { get; set; }
         public DateTime NgayTao { get; set; }
 
         [ForeignKey("MaHocVien")]

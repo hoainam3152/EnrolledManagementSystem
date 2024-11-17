@@ -1,20 +1,19 @@
 ﻿using CoreApiResponse;
 using EnrolledManagementSystem.DTO.Requests;
-using EnrolledManagementSystem.DTO.Responses;
 using EnrolledManagementSystem.Enums;
 using EnrolledManagementSystem.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Net;
 
 namespace EnrolledManagementSystem.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PhanCongGiangDayController : BaseController
+    public class LoaiHocPhiController : BaseController
     {
-        private readonly PhanCongGiangDayService _service;
-        public PhanCongGiangDayController(PhanCongGiangDayService service)
+        private readonly LoaiHocPhiService _service;
+
+        public LoaiHocPhiController(LoaiHocPhiService service)
         {
             _service = service;
         }
@@ -24,10 +23,10 @@ namespace EnrolledManagementSystem.Controllers
         {
             try
             {
-                var phanCongs = await _service.GetAll();
-                if (phanCongs.Any())
+                var hocPhis = await _service.GetAll();
+                if (hocPhis.Any())
                 {
-                    return CustomResult(phanCongs, HttpStatusCode.OK);
+                    return CustomResult(hocPhis, HttpStatusCode.OK);
                 }
                 return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
             }
@@ -37,19 +36,19 @@ namespace EnrolledManagementSystem.Controllers
             }
         }
 
-        [HttpGet("Detail")]
-        public async Task<IActionResult> Details(string maLH, string maMH, string maGV)
+        [HttpGet("id")]
+        public async Task<IActionResult> Details(int id)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var phanCong = await _service.GetById(maLH, maMH, maGV);
-                    if (phanCong != null)
+                    var hocPhi = await _service.GetById(id);
+                    if (hocPhi != null)
                     {
-                        return CustomResult(phanCong, HttpStatusCode.OK);
+                        return CustomResult(hocPhi, HttpStatusCode.OK);
                     }
-                    return CustomResult(ResponseMessage.EMPTY, HttpStatusCode.NotFound);
+                    return CustomResult(ResponseMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
                 }
                 catch (Exception ex)
                 {
@@ -63,26 +62,18 @@ namespace EnrolledManagementSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(PhanCongGiangDayCreate pc)
+        public async Task<IActionResult> Create(LoaiHocPhiRequest hp)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var phanCong = await _service.Add(pc);
-                    if (phanCong == null)
-                    {
-                        return CustomResult(
-                            ResponseMessage.CREATED_SUCCESSFULLY,
-                            pc,
-                            HttpStatusCode.Created
-                            );
-                    }
-                    return CustomResult(ResponseMessage.DUPLICATE_KEY, HttpStatusCode.Conflict);
-                }
-                catch (DbUpdateException db)
-                {
-                    return CustomResult(db.Message, HttpStatusCode.InternalServerError);
+                    var loaiHocPhi = await _service.Add(hp);
+                    return CustomResult(
+                        ResponseMessage.CREATED_SUCCESSFULLY,
+                        loaiHocPhi,
+                        HttpStatusCode.Created
+                        );
                 }
                 catch (Exception ex)
                 {
@@ -95,27 +86,23 @@ namespace EnrolledManagementSystem.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Update(string maLH, string maMH, string maGV, PhanCongGiangDayUpdate pc)
+        [HttpPut("id")]
+        public async Task<IActionResult> Update(int id, LoaiHocPhiRequest hp)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var phanCong = await _service.Update(maLH, maMH, maGV, pc);
-                    if (phanCong != null)
+                    var loaiHocPhi = await _service.Update(id, hp);
+                    if (loaiHocPhi != null)
                     {
                         return CustomResult(
                             ResponseMessage.UPDATED_SUCCESSFULLY,
-                            phanCong,
+                            loaiHocPhi,
                             HttpStatusCode.OK);
                     }
                     return CustomResult(ResponseMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
                 }
-                catch (DbUpdateException db)
-                {
-                    return CustomResult(db.Message, HttpStatusCode.InternalServerError);
-                }
                 catch (Exception ex)
                 {
                     return BadRequest(ex.Message);
@@ -127,23 +114,19 @@ namespace EnrolledManagementSystem.Controllers
             }
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete(string maLH, string maMH, string maGV)
+        [HttpDelete("id")]
+        public async Task<IActionResult> Delete(int id)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var phanCong = await _service.Delete(maLH, maMH, maGV);
-                    if (phanCong != null)
+                    var loaiHocPhi = await _service.Delete(id);
+                    if (loaiHocPhi != null)
                     {
                         return CustomResult(ResponseMessage.DELETED_SUCCESSFULLY, HttpStatusCode.OK);
                     }
                     return CustomResult(ResponseMessage.DATA_NOT_FOUND, HttpStatusCode.NotFound);
-                }
-                catch (DbUpdateException db)
-                {
-                    return CustomResult(db.Message, HttpStatusCode.InternalServerError);
                 }
                 catch (Exception ex)
                 {

@@ -4,6 +4,7 @@ using EnrolledManagementSystem.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EnrolledManagementSystem.Migrations
 {
     [DbContext(typeof(ManagementDbContext))]
-    partial class ManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241117111416_UpdateTable_LoaiHocPhi")]
+    partial class UpdateTable_LoaiHocPhi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -328,18 +330,11 @@ namespace EnrolledManagementSystem.Migrations
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.LoaiHocPhi", b =>
                 {
-                    b.Property<int>("MaLoaiHocPhi")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaLoaiHocPhi"), 1L, 1);
-
                     b.Property<string>("TenLoaiHocPhi")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("MaLoaiHocPhi");
+                    b.HasKey("TenLoaiHocPhi");
 
                     b.ToTable("LoaiHocPhi");
                 });
@@ -614,17 +609,13 @@ namespace EnrolledManagementSystem.Migrations
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.PhieuThuHocPhi", b =>
                 {
-                    b.Property<int>("MaPhieuThu")
+                    b.Property<int>("MaPhieuHocPhieu")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaPhieuThu"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaPhieuHocPhieu"), 1L, 1);
 
-                    b.Property<string>("GhiChu")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<decimal?>("GiamGia")
+                    b.Property<decimal>("GiamGia")
                         .HasColumnType("decimal(10,2)");
 
                     b.Property<string>("MaHocVien")
@@ -632,13 +623,15 @@ namespace EnrolledManagementSystem.Migrations
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<int>("MaLoaiHocPhi")
-                        .HasColumnType("int");
-
                     b.Property<string>("MaLop")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Mota")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<decimal>("MucThuPhi")
                         .HasColumnType("decimal(10,2)");
@@ -646,11 +639,9 @@ namespace EnrolledManagementSystem.Migrations
                     b.Property<DateTime>("NgayTao")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("MaPhieuThu");
+                    b.HasKey("MaPhieuHocPhieu");
 
                     b.HasIndex("MaHocVien");
-
-                    b.HasIndex("MaLoaiHocPhi");
 
                     b.HasIndex("MaLop");
 
@@ -939,12 +930,6 @@ namespace EnrolledManagementSystem.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("EnrolledManagementSystem.Entities.LoaiHocPhi", "LoaiHocPhi")
-                        .WithMany("PhieuThuHocPhis")
-                        .HasForeignKey("MaLoaiHocPhi")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.HasOne("EnrolledManagementSystem.Entities.LopHoc", "LopHoc")
                         .WithMany("PhieuThuHocPhis")
                         .HasForeignKey("MaLop")
@@ -952,8 +937,6 @@ namespace EnrolledManagementSystem.Migrations
                         .IsRequired();
 
                     b.Navigation("HocVien");
-
-                    b.Navigation("LoaiHocPhi");
 
                     b.Navigation("LopHoc");
                 });
@@ -994,11 +977,6 @@ namespace EnrolledManagementSystem.Migrations
                     b.Navigation("Diems");
 
                     b.Navigation("loaiDiemMons");
-                });
-
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.LoaiHocPhi", b =>
-                {
-                    b.Navigation("PhieuThuHocPhis");
                 });
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.LopHoc", b =>

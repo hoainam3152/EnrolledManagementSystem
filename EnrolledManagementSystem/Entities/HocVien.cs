@@ -33,5 +33,8 @@ namespace EnrolledManagementSystem.Entities
 
         [ForeignKey("MaLopHoc")]
         public LopHoc LopHoc { get; set; }
+
+        public ICollection<Diem> Diems { get; set; }
+        public ICollection<PhieuThuHocPhi> PhieuThuHocPhis { get; set; }
     }
 }

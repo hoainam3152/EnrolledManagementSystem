@@ -13,6 +13,6 @@ namespace EnrolledManagementSystem.Entities
         [StringLength(50)]
         public string TenLoaiHocPhi { get; set; }
 
-        public ICollection<PhieuThuHocPhi> phieuThuHocPhis { get; set; }
+        public ICollection<PhieuThuHocPhi> PhieuThuHocPhis { get; set; }
     }
 }

@@ -16,6 +16,8 @@ namespace EnrolledManagementSystem.Entities
         [StringLength(20)]
         public string MaKhoaKhoi { get; set; }
         public int SoLuongHocVien { get; set; }
+        [StringLength(50)]
+        public string? TrangThai { get; set; }
         [Column(TypeName = "decimal(10,2)")]
         public decimal HocPhi { get; set; }
         public string? MoTa { get; set; }
@@ -29,6 +31,6 @@ namespace EnrolledManagementSystem.Entities
 
         public ICollection<PhanCongGiangDay> phanCongGiangDays { get; set; }
         public ICollection<HocVien> hocViens { get; set; }
-        public ICollection<PhieuThuHocPhi> phieuThuHocPhis { get; set; }
+        public ICollection<PhieuThuHocPhi> PhieuThuHocPhis { get; set; }
     }
 }

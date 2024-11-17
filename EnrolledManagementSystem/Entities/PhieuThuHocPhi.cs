@@ -7,8 +7,10 @@ namespace EnrolledManagementSystem.Entities
     public class PhieuThuHocPhi
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int MaPhieuHocPhieu { get; set; }
         [StringLength(20)]
-        public string MaPhieu { get; set; }
+        public string MaHocVien { get; set; }
         [StringLength(20)]
         public string MaLop { get; set; }
         [StringLength(20)]
@@ -19,9 +21,11 @@ namespace EnrolledManagementSystem.Entities
         public decimal GiamGia { get; set; }
         [StringLength(255)]
         public string Mota { get; set; }
-        [StringLength(20)]
         public DateTime NgayTao { get; set; }
+        public bool DaDongHocPhi { get; set; }
 
+        [ForeignKey("MaHocVien")]
+        public HocVien HocVien { get; set; }
         [ForeignKey("MaLop")]
         public LopHoc LopHoc { get; set; }
 

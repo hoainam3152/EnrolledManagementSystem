@@ -24,5 +24,6 @@ namespace EnrolledManagementSystem.Entities
         public ICollection<LoaiDiemMon> loaiDiemMons { get; set; }
         public ICollection<PhanCongGiangDay> phanCongGiangDays { get; set; }
         public ICollection<GiangVien> giangViens { get; set; }
+        public ICollection<Diem> Diems { get; set; }
     }
 }

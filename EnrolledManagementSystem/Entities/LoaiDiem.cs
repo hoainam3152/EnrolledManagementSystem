@@ -15,6 +15,7 @@ namespace EnrolledManagementSystem.Entities
         public int HeSo { get; set; }
 
         public ICollection<LoaiDiemMon> loaiDiemMons { get; set; }
+        public ICollection<Diem> Diems { get; set; }
 
         public LoaiDiem() { }
 

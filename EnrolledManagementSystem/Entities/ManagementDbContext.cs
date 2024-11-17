@@ -21,6 +21,14 @@ namespace EnrolledManagementSystem.Entities
         public DbSet<LoaiHocPhi> LoaiHocPhis { get; set; }
         public DbSet<PhieuThuHocPhi> PhieuThuHocPhis { get; set; }
         public DbSet<LichNghi> LichNghis { get; set; }
+        public DbSet<Diem> Diems { get; set; }
+        public DbSet<VaiTro> VaiTros { get; set; }
+        public DbSet<NguoiDung> NguoiDungs { get; set; }
+        public DbSet<QuyenNguoiDung> QuyenNguoiDungs { get; set; }
+        public DbSet<PhanQuyen> PhanQuyens { get; set; }
+        public DbSet<ChucVu> ChucVus { get; set; }
+        public DbSet<NhanVien> NhanViens { get; set; }
+        public DbSet<PhieuLuongNhanVien> PhieuLuongNhanViens { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -88,6 +96,65 @@ namespace EnrolledManagementSystem.Entities
                 //Chuyen kieu TimeSpan thanh kieu Time trong sql
                 entity.Property(e => e.GioBatDau).HasColumnType("time");
                 entity.Property(e => e.GioKetThuc).HasColumnType("time");
+            });
+
+            //Diem
+            modelBuilder.Entity<Diem>(entity =>
+            {
+                //Tao nhieu khoa chinh
+                entity.HasKey(e => new { e.MaMonHoc, e.MaLoaiDiem, e.MaHocVien });
+
+                //Tao khoa ngoai
+                entity.HasOne(e => e.MonHoc)
+                    .WithMany(e => e.Diems)
+                    .HasForeignKey(e => e.MaMonHoc)
+                    .OnDelete(DeleteBehavior.NoAction);
+
+                entity.HasOne(e => e.LoaiDiem)
+                    .WithMany(e => e.Diems)
+                    .HasForeignKey(e => e.MaLoaiDiem)
+                    .OnDelete(DeleteBehavior.NoAction);
+
+                entity.HasOne(e => e.HocVien)
+                    .WithMany(e => e.Diems)
+                    .HasForeignKey(e => e.MaHocVien)
+                    .OnDelete(DeleteBehavior.NoAction);
+            });
+
+            //Phan quyen
+            modelBuilder.Entity<PhanQuyen>(entity =>
+            {
+                //Tao nhieu khoa chinh
+                entity.HasKey(e => new { e.MaVaiTro, e.MaQuyen });
+
+                //Tao khoa ngoai
+                entity.HasOne(e => e.VaiTro)
+                    .WithMany(e => e.PhanQuyens)
+                    .HasForeignKey(e => e.MaVaiTro);
+
+                entity.HasOne(e => e.QuyenNguoiDung)
+                    .WithMany(e => e.PhanQuyens)
+                    .HasForeignKey(e => e.MaQuyen);
+            });
+
+            //Phan quyen
+            modelBuilder.Entity<PhieuThuHocPhi>(entity =>
+            {
+                //Tao khoa ngoai
+                entity.HasOne(e => e.HocVien)
+                    .WithMany(e => e.PhieuThuHocPhis)
+                    .HasForeignKey(e => e.MaHocVien)
+                    .OnDelete(DeleteBehavior.NoAction);
+
+                entity.HasOne(e => e.LopHoc)
+                    .WithMany(e => e.PhieuThuHocPhis)
+                    .HasForeignKey(e => e.MaLop)
+                    .OnDelete(DeleteBehavior.NoAction);
+
+                entity.HasOne(e => e.LoaiHocPhi)
+                    .WithMany(e => e.PhieuThuHocPhis)
+                    .HasForeignKey(e => e.MaLoaiHocPhi)
+                    .OnDelete(DeleteBehavior.NoAction);
             });
         }
     }

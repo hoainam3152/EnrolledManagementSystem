@@ -4,6 +4,7 @@ using EnrolledManagementSystem.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EnrolledManagementSystem.Migrations
 {
     [DbContext(typeof(ManagementDbContext))]
-    partial class ManagementDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241116110546_AddTable_Diem")]
+    partial class AddTable_Diem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,24 +23,6 @@ namespace EnrolledManagementSystem.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.ChucVu", b =>
-                {
-                    b.Property<int>("MaChucVu")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaChucVu"), 1L, 1);
-
-                    b.Property<string>("TenChucVu")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("MaChucVu");
-
-                    b.ToTable("ChucVu");
-                });
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.Diem", b =>
                 {
@@ -53,9 +37,6 @@ namespace EnrolledManagementSystem.Migrations
                     b.Property<string>("MaHocVien")
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
-
-                    b.Property<bool>("DaChot")
-                        .HasColumnType("bit");
 
                     b.Property<float>("SoCotDiem")
                         .HasColumnType("real");
@@ -357,10 +338,6 @@ namespace EnrolledManagementSystem.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("TrangThai")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.HasKey("MaLop");
 
                     b.HasIndex("MaKhoaKhoi");
@@ -396,68 +373,6 @@ namespace EnrolledManagementSystem.Migrations
                     b.HasIndex("MaToBoMon");
 
                     b.ToTable("MonHoc");
-                });
-
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.NguoiDung", b =>
-                {
-                    b.Property<string>("MaNguoiDung")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("HinhAnh")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int>("MaVaiTro")
-                        .HasColumnType("int");
-
-                    b.Property<string>("MatKhau")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("TenNguoiDung")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("MaNguoiDung");
-
-                    b.HasIndex("MaVaiTro");
-
-                    b.ToTable("NguoiDung");
-                });
-
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.NhanVien", b =>
-                {
-                    b.Property<string>("MaNhanVien")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<int>("MaChucVu")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("NgaySinh")
-                        .HasMaxLength(20)
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("NgayVaoLam")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("TenNhanVien")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("MaNhanVien");
-
-                    b.HasIndex("MaChucVu");
-
-                    b.ToTable("NhanVien");
                 });
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.NienKhoa", b =>
@@ -520,91 +435,14 @@ namespace EnrolledManagementSystem.Migrations
                     b.ToTable("PhanCongGiangDay");
                 });
 
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.PhanQuyen", b =>
-                {
-                    b.Property<int>("MaVaiTro")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MaQuyen")
-                        .HasColumnType("int");
-
-                    b.HasKey("MaVaiTro", "MaQuyen");
-
-                    b.HasIndex("MaQuyen");
-
-                    b.ToTable("PhanQuyens");
-                });
-
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.PhieuLuongNhanVien", b =>
-                {
-                    b.Property<int>("MaPhieuLuong")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaPhieuLuong"), 1L, 1);
-
-                    b.Property<bool>("DaChotLuong")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("GhiChu")
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<int>("LuongNhanVien")
-                        .HasColumnType("int");
-
-                    b.Property<string>("MaKhoaHoc")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("MaNhanVien")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<DateTime>("NgayInPhieu")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("SoTienPhuCap")
-                        .HasColumnType("decimal(10,2)");
-
-                    b.Property<string>("TenPhieu")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("TenPhuCap")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("MaPhieuLuong");
-
-                    b.HasIndex("MaKhoaHoc");
-
-                    b.HasIndex("MaNhanVien");
-
-                    b.ToTable("PhieuLuongNhanVien");
-                });
-
             modelBuilder.Entity("EnrolledManagementSystem.Entities.PhieuThuHocPhi", b =>
                 {
-                    b.Property<int>("MaPhieuHocPhieu")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaPhieuHocPhieu"), 1L, 1);
-
-                    b.Property<bool>("DaDongHocPhi")
-                        .HasColumnType("bit");
+                    b.Property<string>("MaPhieu")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
 
                     b.Property<decimal>("GiamGia")
                         .HasColumnType("decimal(10,2)");
-
-                    b.Property<string>("MaHocVien")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("MaLoaiHocPhi")
                         .IsRequired()
@@ -625,35 +463,16 @@ namespace EnrolledManagementSystem.Migrations
                         .HasColumnType("decimal(10,2)");
 
                     b.Property<DateTime>("NgayTao")
+                        .HasMaxLength(20)
                         .HasColumnType("datetime2");
 
-                    b.HasKey("MaPhieuHocPhieu");
-
-                    b.HasIndex("MaHocVien");
+                    b.HasKey("MaPhieu");
 
                     b.HasIndex("MaLoaiHocPhi");
 
                     b.HasIndex("MaLop");
 
                     b.ToTable("PhieuThuHocPhi");
-                });
-
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.QuyenNguoiDung", b =>
-                {
-                    b.Property<int>("MaQuyen")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaQuyen"), 1L, 1);
-
-                    b.Property<string>("TenQuyen")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("MaQuyen");
-
-                    b.ToTable("QuyenNguoiDung");
                 });
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.To_BoMon", b =>
@@ -672,24 +491,6 @@ namespace EnrolledManagementSystem.Migrations
                     b.HasKey("MaToBoMon");
 
                     b.ToTable("To_BoMon");
-                });
-
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.VaiTro", b =>
-                {
-                    b.Property<int>("MaVaiTro")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaVaiTro"), 1L, 1);
-
-                    b.Property<string>("TenVaiTro")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("MaVaiTro");
-
-                    b.ToTable("VaiTro");
                 });
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.Diem", b =>
@@ -806,28 +607,6 @@ namespace EnrolledManagementSystem.Migrations
                     b.Navigation("To_BoMon");
                 });
 
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.NguoiDung", b =>
-                {
-                    b.HasOne("EnrolledManagementSystem.Entities.VaiTro", "VaiTro")
-                        .WithMany("NguoiDungs")
-                        .HasForeignKey("MaVaiTro")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("VaiTro");
-                });
-
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.NhanVien", b =>
-                {
-                    b.HasOne("EnrolledManagementSystem.Entities.ChucVu", "ChucVu")
-                        .WithMany("NhanViens")
-                        .HasForeignKey("MaChucVu")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ChucVu");
-                });
-
             modelBuilder.Entity("EnrolledManagementSystem.Entities.PhanCongGiangDay", b =>
                 {
                     b.HasOne("EnrolledManagementSystem.Entities.GiangVien", "GiangVien")
@@ -855,74 +634,23 @@ namespace EnrolledManagementSystem.Migrations
                     b.Navigation("MonHoc");
                 });
 
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.PhanQuyen", b =>
-                {
-                    b.HasOne("EnrolledManagementSystem.Entities.QuyenNguoiDung", "QuyenNguoiDung")
-                        .WithMany("PhanQuyens")
-                        .HasForeignKey("MaQuyen")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EnrolledManagementSystem.Entities.VaiTro", "VaiTro")
-                        .WithMany("PhanQuyens")
-                        .HasForeignKey("MaVaiTro")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("QuyenNguoiDung");
-
-                    b.Navigation("VaiTro");
-                });
-
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.PhieuLuongNhanVien", b =>
-                {
-                    b.HasOne("EnrolledManagementSystem.Entities.Khoa", "Khoa")
-                        .WithMany()
-                        .HasForeignKey("MaKhoaHoc")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EnrolledManagementSystem.Entities.NhanVien", "NhanVien")
-                        .WithMany("PhieuLuongNhanViens")
-                        .HasForeignKey("MaNhanVien")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Khoa");
-
-                    b.Navigation("NhanVien");
-                });
-
             modelBuilder.Entity("EnrolledManagementSystem.Entities.PhieuThuHocPhi", b =>
                 {
-                    b.HasOne("EnrolledManagementSystem.Entities.HocVien", "HocVien")
-                        .WithMany("PhieuThuHocPhis")
-                        .HasForeignKey("MaHocVien")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
                     b.HasOne("EnrolledManagementSystem.Entities.LoaiHocPhi", "LoaiHocPhi")
-                        .WithMany("PhieuThuHocPhis")
+                        .WithMany("phieuThuHocPhis")
                         .HasForeignKey("MaLoaiHocPhi")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EnrolledManagementSystem.Entities.LopHoc", "LopHoc")
-                        .WithMany("PhieuThuHocPhis")
+                        .WithMany("phieuThuHocPhis")
                         .HasForeignKey("MaLop")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("HocVien");
 
                     b.Navigation("LoaiHocPhi");
 
                     b.Navigation("LopHoc");
-                });
-
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.ChucVu", b =>
-                {
-                    b.Navigation("NhanViens");
                 });
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.GiangVien", b =>
@@ -933,8 +661,6 @@ namespace EnrolledManagementSystem.Migrations
             modelBuilder.Entity("EnrolledManagementSystem.Entities.HocVien", b =>
                 {
                     b.Navigation("Diems");
-
-                    b.Navigation("PhieuThuHocPhis");
                 });
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.Khoa", b =>
@@ -958,16 +684,16 @@ namespace EnrolledManagementSystem.Migrations
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.LoaiHocPhi", b =>
                 {
-                    b.Navigation("PhieuThuHocPhis");
+                    b.Navigation("phieuThuHocPhis");
                 });
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.LopHoc", b =>
                 {
-                    b.Navigation("PhieuThuHocPhis");
-
                     b.Navigation("hocViens");
 
                     b.Navigation("phanCongGiangDays");
+
+                    b.Navigation("phieuThuHocPhis");
                 });
 
             modelBuilder.Entity("EnrolledManagementSystem.Entities.MonHoc", b =>
@@ -981,31 +707,14 @@ namespace EnrolledManagementSystem.Migrations
                     b.Navigation("phanCongGiangDays");
                 });
 
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.NhanVien", b =>
-                {
-                    b.Navigation("PhieuLuongNhanViens");
-                });
-
             modelBuilder.Entity("EnrolledManagementSystem.Entities.NienKhoa", b =>
                 {
                     b.Navigation("lopHocs");
                 });
 
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.QuyenNguoiDung", b =>
-                {
-                    b.Navigation("PhanQuyens");
-                });
-
             modelBuilder.Entity("EnrolledManagementSystem.Entities.To_BoMon", b =>
                 {
                     b.Navigation("monHocs");
-                });
-
-            modelBuilder.Entity("EnrolledManagementSystem.Entities.VaiTro", b =>
-                {
-                    b.Navigation("NguoiDungs");
-
-                    b.Navigation("PhanQuyens");
                 });
 #pragma warning restore 612, 618
         }

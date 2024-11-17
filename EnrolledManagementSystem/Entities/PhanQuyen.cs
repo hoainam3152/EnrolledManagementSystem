@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EnrolledManagementSystem.Entities
 {
+    [Table("PhanQuyen")]
     public class PhanQuyen
     {
         public int MaVaiTro { get; set; }

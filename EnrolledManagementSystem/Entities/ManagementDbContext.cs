@@ -29,6 +29,7 @@ namespace EnrolledManagementSystem.Entities
         public DbSet<ChucVu> ChucVus { get; set; }
         public DbSet<NhanVien> NhanViens { get; set; }
         public DbSet<PhieuLuongNhanVien> PhieuLuongNhanViens { get; set; }
+        public DbSet<DangKy> DangKys { get; set; }
         #endregion
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -137,7 +138,7 @@ namespace EnrolledManagementSystem.Entities
                     .HasForeignKey(e => e.MaQuyen);
             });
 
-            //Phan quyen
+            //Phieu thu hoc phi
             modelBuilder.Entity<PhieuThuHocPhi>(entity =>
             {
                 //Tao khoa ngoai
@@ -154,6 +155,24 @@ namespace EnrolledManagementSystem.Entities
                 entity.HasOne(e => e.LoaiHocPhi)
                     .WithMany(e => e.PhieuThuHocPhis)
                     .HasForeignKey(e => e.MaLoaiHocPhi)
+                    .OnDelete(DeleteBehavior.NoAction);
+            });
+
+            //Phan Quyen
+            modelBuilder.Entity<DangKy>(entity =>
+            {
+                //Tao nhieu khoa chinh
+                entity.HasKey(e => new { e.MaHocVien, e.MaLopHoc });
+
+                //Tao khoa ngoai
+                entity.HasOne(e => e.HocVien)
+                    .WithMany(e => e.DangKys)
+                    .HasForeignKey(e => e.MaHocVien)
+                    .OnDelete(DeleteBehavior.NoAction);
+
+                entity.HasOne(e => e.LopHoc)
+                    .WithMany(e => e.DangKys)
+                    .HasForeignKey(e => e.MaLopHoc)
                     .OnDelete(DeleteBehavior.NoAction);
             });
         }

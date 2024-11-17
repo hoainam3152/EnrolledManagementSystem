@@ -22,7 +22,6 @@ namespace EnrolledManagementSystem.Entities
         [StringLength(255)]
         public string Mota { get; set; }
         public DateTime NgayTao { get; set; }
-        public bool DaDongHocPhi { get; set; }
 
         [ForeignKey("MaHocVien")]
         public HocVien HocVien { get; set; }

@@ -36,5 +36,6 @@ namespace EnrolledManagementSystem.Entities
 
         public ICollection<Diem> Diems { get; set; }
         public ICollection<PhieuThuHocPhi> PhieuThuHocPhis { get; set; }
+        public ICollection<DangKy> DangKys { get; set; }
     }
 }

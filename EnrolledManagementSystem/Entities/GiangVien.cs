@@ -10,7 +10,7 @@ namespace EnrolledManagementSystem.Entities
         [StringLength(20)]
         public string MaGiangVien { get; set; }
         [StringLength(13)]
-        public string MaSoThue { get; set; }
+        public string? MaSoThue { get; set; }
         [StringLength(20)]
         public string Ho { get; set; }
         [StringLength(80)]

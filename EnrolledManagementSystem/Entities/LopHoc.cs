@@ -32,5 +32,6 @@ namespace EnrolledManagementSystem.Entities
         public ICollection<PhanCongGiangDay> phanCongGiangDays { get; set; }
         public ICollection<HocVien> hocViens { get; set; }
         public ICollection<PhieuThuHocPhi> PhieuThuHocPhis { get; set; }
+        public ICollection<DangKy> DangKys { get; set; }
     }
 }

@@ -93,10 +93,6 @@ namespace EnrolledManagementSystem.Entities
                 //Chuyen kieu DateTime thanh kieu Date trong sql
                 entity.Property(e => e.NgayBatDau).HasColumnType("date");
                 entity.Property(e => e.NgayKetThuc).HasColumnType("date");
-
-                //Chuyen kieu TimeSpan thanh kieu Time trong sql
-                entity.Property(e => e.GioBatDau).HasColumnType("time");
-                entity.Property(e => e.GioKetThuc).HasColumnType("time");
             });
 
             //Diem

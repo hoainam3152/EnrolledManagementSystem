@@ -17,8 +17,10 @@ namespace EnrolledManagementSystem.Entities
         public string Thu { get; set; }
         public DateTime NgayBatDau { get; set; }
         public DateTime NgayKetThuc { get; set; }
-        public TimeSpan GioBatDau { get; set; }
-        public TimeSpan GioKetThuc { get; set; }
+        [StringLength(5)]
+        public string GioBatDau { get; set; }
+        [StringLength(5)]
+        public string GioKetThuc { get; set; }
 
         [ForeignKey("MaLopHoc")]
         public LopHoc LopHoc { get; set; }

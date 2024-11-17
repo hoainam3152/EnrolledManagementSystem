@@ -1,5 +1,84 @@
 [
   {
+    "ContainingType": "EnrolledManagementSystem.Controllers.GiangVienController",
+    "Method": "Get",
+    "RelativePath": "GiangVien",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.GiangVienController",
+    "Method": "Create",
+    "RelativePath": "GiangVien",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "gv",
+        "Type": "EnrolledManagementSystem.DTO.Requests.GiangVienCreate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.GiangVienController",
+    "Method": "Details",
+    "RelativePath": "GiangVien/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.GiangVienController",
+    "Method": "Update",
+    "RelativePath": "GiangVien/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "gv",
+        "Type": "EnrolledManagementSystem.DTO.Requests.GiangVienUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.GiangVienController",
+    "Method": "Delete",
+    "RelativePath": "GiangVien/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EnrolledManagementSystem.Controllers.KhoaController",
     "Method": "Get",
     "RelativePath": "Khoa",
@@ -576,6 +655,115 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhanCongGiangDayController",
+    "Method": "Get",
+    "RelativePath": "PhanCongGiangDay",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhanCongGiangDayController",
+    "Method": "Create",
+    "RelativePath": "PhanCongGiangDay",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pc",
+        "Type": "EnrolledManagementSystem.DTO.Requests.PhanCongGiangDayCreate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhanCongGiangDayController",
+    "Method": "Details",
+    "RelativePath": "PhanCongGiangDay/Detail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maLH",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maMH",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maGV",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhanCongGiangDayController",
+    "Method": "Update",
+    "RelativePath": "PhanCongGiangDay/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maLH",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maMH",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maGV",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "pc",
+        "Type": "EnrolledManagementSystem.DTO.Requests.PhanCongGiangDayUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhanCongGiangDayController",
+    "Method": "Delete",
+    "RelativePath": "PhanCongGiangDay/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maLH",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maMH",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "maGV",
         "Type": "System.String",
         "IsRequired": false
       }

@@ -32,11 +32,11 @@ builder.Services.AddScoped<DiemService>();
 builder.Services.AddScoped<ChucVuService>();
 builder.Services.AddScoped<NhanVienService>();
 builder.Services.AddScoped<PhieuLuongService>();
-//builder.Services.AddScoped<NhanVienService>();
-//builder.Services.AddScoped<NhanVienService>();
-//builder.Services.AddScoped<NhanVienService>();
-//builder.Services.AddScoped<NhanVienService>();
-//builder.Services.AddScoped<NhanVienService>();
+builder.Services.AddScoped<VaiTroService>();
+builder.Services.AddScoped<QuyenNguoiDungService>();
+builder.Services.AddScoped<PhanQuyenService>();
+builder.Services.AddScoped<NguoiDungService>();
+builder.Services.AddScoped<LichNghiService>();
 
 var app = builder.Build();
 

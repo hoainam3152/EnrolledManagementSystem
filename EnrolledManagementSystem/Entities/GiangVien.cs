@@ -32,9 +32,13 @@ namespace EnrolledManagementSystem.Entities
         public string? MatKhau { get; set; }
         [StringLength(255)]
         public string? HinhAnh { get; set; }
+        [StringLength(20)]
+        public string? MaNguoiDung { get; set; }
 
         [ForeignKey("MaMonDayChinh")]
         public MonHoc MonChinh { get; set; }
+        [ForeignKey("MaNguoiDung")]
+        public NguoiDung NguoiDung { get; set; }
 
         public ICollection<PhanCongGiangDay> phanCongGiangDays { get; set; }
     }

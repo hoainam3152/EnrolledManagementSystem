@@ -21,5 +21,9 @@ namespace EnrolledManagementSystem.Entities
 
         [ForeignKey("MaVaiTro")]
         public VaiTro VaiTro { get; set; }
+
+        public HocVien HocVien { get; set; }
+        public GiangVien GiangVien { get; set; }
+        public NhanVien NhanVien { get; set; }
     }
 }

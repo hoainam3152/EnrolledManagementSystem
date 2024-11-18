@@ -1018,6 +1018,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NguoiDungController",
+    "Method": "Get",
+    "RelativePath": "NguoiDung",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NguoiDungController",
+    "Method": "Create",
+    "RelativePath": "NguoiDung",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nvc",
+        "Type": "EnrolledManagementSystem.DTO.Requests.NguoiDungCreate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NguoiDungController",
+    "Method": "Details",
+    "RelativePath": "NguoiDung/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NguoiDungController",
+    "Method": "Update",
+    "RelativePath": "NguoiDung/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "nvc",
+        "Type": "EnrolledManagementSystem.DTO.Requests.NguoiDungUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.NguoiDungController",
+    "Method": "Delete",
+    "RelativePath": "NguoiDung/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EnrolledManagementSystem.Controllers.NhanVienController",
     "Method": "Get",
     "RelativePath": "NhanVien",
@@ -1285,6 +1364,74 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhanQuyenController",
+    "Method": "Get",
+    "RelativePath": "PhanQuyen",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhanQuyenController",
+    "Method": "Create",
+    "RelativePath": "PhanQuyen",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dk",
+        "Type": "EnrolledManagementSystem.DTO.Requests.PhanQuyenRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhanQuyenController",
+    "Method": "Delete",
+    "RelativePath": "PhanQuyen",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maVT",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "maQ",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.PhanQuyenController",
+    "Method": "Details",
+    "RelativePath": "PhanQuyen/Detail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maVT",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "maQ",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EnrolledManagementSystem.Controllers.PhieuLuongNhanVienController",
     "Method": "Get",
     "RelativePath": "PhieuLuongNhanVien",
@@ -1443,6 +1590,85 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EnrolledManagementSystem.Controllers.QuyenNguoiDungController",
+    "Method": "Get",
+    "RelativePath": "QuyenNguoiDung",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.QuyenNguoiDungController",
+    "Method": "Create",
+    "RelativePath": "QuyenNguoiDung",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "qnd",
+        "Type": "EnrolledManagementSystem.DTO.Requests.QuyenNguoiDungRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.QuyenNguoiDungController",
+    "Method": "Details",
+    "RelativePath": "QuyenNguoiDung/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.QuyenNguoiDungController",
+    "Method": "Update",
+    "RelativePath": "QuyenNguoiDung/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "qnd",
+        "Type": "EnrolledManagementSystem.DTO.Requests.QuyenNguoiDungRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.QuyenNguoiDungController",
+    "Method": "Delete",
+    "RelativePath": "QuyenNguoiDung/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EnrolledManagementSystem.Controllers.ToBoMonController",
     "Method": "Get",
     "RelativePath": "ToBoMon",
@@ -1509,6 +1735,85 @@
     "ContainingType": "EnrolledManagementSystem.Controllers.ToBoMonController",
     "Method": "Delete",
     "RelativePath": "ToBoMon/id",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.VaiTroController",
+    "Method": "Get",
+    "RelativePath": "VaiTro",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.VaiTroController",
+    "Method": "Create",
+    "RelativePath": "VaiTro",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "vt",
+        "Type": "EnrolledManagementSystem.DTO.Requests.VaiTroRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.VaiTroController",
+    "Method": "Details",
+    "RelativePath": "VaiTro/id",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.VaiTroController",
+    "Method": "Update",
+    "RelativePath": "VaiTro/id",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "vt",
+        "Type": "EnrolledManagementSystem.DTO.Requests.VaiTroRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EnrolledManagementSystem.Controllers.VaiTroController",
+    "Method": "Delete",
+    "RelativePath": "VaiTro/id",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

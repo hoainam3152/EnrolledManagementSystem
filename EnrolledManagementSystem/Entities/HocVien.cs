@@ -30,9 +30,13 @@ namespace EnrolledManagementSystem.Entities
         public string MaLopHoc { get; set; }
         [StringLength(255)]
         public string? HinhAnh { get; set; }
+        [StringLength(20)]
+        public string? MaNguoiDung { get; set; }
 
         [ForeignKey("MaLopHoc")]
         public LopHoc LopHoc { get; set; }
+        [ForeignKey("MaNguoiDung")]
+        public NguoiDung NguoiDung { get; set; }
 
         public ICollection<Diem> Diems { get; set; }
         public ICollection<PhieuThuHocPhi> PhieuThuHocPhis { get; set; }

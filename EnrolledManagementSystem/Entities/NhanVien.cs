@@ -15,9 +15,13 @@ namespace EnrolledManagementSystem.Entities
         public DateTime NgaySinh { get; set; }
         public int MaChucVu { get; set; }
         public DateTime NgayVaoLam { get; set; }
+        [StringLength(20)]
+        public string? MaNguoiDung { get; set; }
 
         [ForeignKey("MaChucVu")]
         public ChucVu ChucVu { get; set; }
+        [ForeignKey("MaNguoiDung")]
+        public NguoiDung NguoiDung { get; set; }
 
         public ICollection<PhieuLuongNhanVien> PhieuLuongNhanViens { get; set; }
     }
